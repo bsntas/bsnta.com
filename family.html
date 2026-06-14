@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Family — Basanta Sharma</title>
+  <meta name="description" content="The Sharma family tree — the people at the heart of everything.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div id="nav-slot"></div>
+
+  <main>
+
+    <header class="page-header">
+      <div class="container">
+        <p class="eyebrow">परिवार</p>
+        <h1>Family</h1>
+        <p>The Sharma family — the roots I grow from and the branches I tend.</p>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="container">
+
+        <div class="ftree-wrap">
+          <div class="ftree">
+            <ul>
+
+              <!-- ── Generation 0: Basanta's Parents ───────── -->
+              <li>
+                <div class="ftcouple">
+                  <button type="button" class="ftperson"
+                          data-note="PLACEHOLDER — A warm note about your father.">
+                    <div class="ftavatar">👨</div>
+                    <div class="ftname">Muktinath Sharma</div>
+                    <div class="ftrelation">Father</div>
+                  </button>
+                  <span class="ftheart" aria-hidden="true">♥</span>
+                  <button type="button" class="ftperson"
+                          data-note="PLACEHOLDER — A warm note about your mother.">
+                    <div class="ftavatar"><img src="assets/images/me_and_mom.jpg" alt="Sharada Sharma"></div>
+                    <div class="ftname">Sharada Sharma</div>
+                    <div class="ftrelation">Mother</div>
+                  </button>
+                </div>
+
+                <!-- ── Generation 1: Siblings ─────────────── -->
+                <ul>
+
+                  <!-- Basanta's family -->
+                  <li>
+                    <div class="ftcouple">
+                      <button type="button" class="ftperson ftperson--you"
+                              data-note="PLACEHOLDER — A note about yourself.">
+                        <div class="ftavatar"><img src="assets/images/me.jpg" alt="Basanta Sharma"></div>
+                        <div class="ftname">Basanta Sharma</div>
+                        <div class="ftrelation">Me</div>
+                      </button>
+                      <span class="ftheart" aria-hidden="true">♥</span>
+                      <button type="button" class="ftperson"
+                              data-note="PLACEHOLDER — A warm note about Anisha.">
+                        <div class="ftavatar">👩</div>
+                        <div class="ftname">Anisha Sharma</div>
+                        <div class="ftrelation">Wife</div>
+                      </button>
+                    </div>
+
+                    <!-- ── Generation 2: Basanta's children ── -->
+                    <ul>
+                      <li>
+                        <button type="button" class="ftperson ftperson--child"
+                                data-note="PLACEHOLDER — A warm note about Nirvighna.">
+                          <div class="ftavatar">🧒</div>
+                          <div class="ftname">Nirvighna Sharma</div>
+                          <div class="ftrelation">Son</div>
+                        </button>
+                      </li>
+                      <li>
+                        <button type="button" class="ftperson ftperson--expected"
+                                data-note="A beautiful little soul on the way. 🌟">
+                          <div class="ftavatar">✨</div>
+                          <div class="ftname">Coming Soon</div>
+                          <div class="ftrelation">Expected</div>
+                        </button>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <!-- Sisir's family -->
+                  <li>
+                    <div class="ftcouple">
+                      <button type="button" class="ftperson"
+                              data-note="PLACEHOLDER — A warm note about Sisir.">
+                        <div class="ftavatar">👨</div>
+                        <div class="ftname">Sisir Sharma</div>
+                        <div class="ftrelation">Brother</div>
+                      </button>
+                      <span class="ftheart" aria-hidden="true">♥</span>
+                      <button type="button" class="ftperson"
+                              data-note="PLACEHOLDER — A warm note about Gomati.">
+                        <div class="ftavatar">👩</div>
+                        <div class="ftname">Gomati Rai</div>
+                        <div class="ftrelation">Sister-in-law</div>
+                      </button>
+                    </div>
+
+                    <!-- ── Generation 2: Sisir's children ─── -->
+                    <ul>
+                      <li>
+                        <button type="button" class="ftperson ftperson--child"
+                                data-note="PLACEHOLDER — A warm note about Shivanshi.">
+                          <div class="ftavatar">👧</div>
+                          <div class="ftname">Shivanshi</div>
+                          <div class="ftrelation">Niece</div>
+                        </button>
+                      </li>
+                      <li>
+                        <button type="button" class="ftperson ftperson--child"
+                                data-note="PLACEHOLDER — A warm note about Devanshi.">
+                          <div class="ftavatar">👧</div>
+                          <div class="ftname">Devanshi</div>
+                          <div class="ftrelation">Niece</div>
+                        </button>
+                      </li>
+                    </ul>
+                  </li>
+
+                </ul>
+              </li>
+
+            </ul>
+          </div>
+        </div><!-- .ftree-wrap -->
+
+      </div>
+    </section>
+
+  </main>
+
+  <dialog class="person-modal" id="personModal" aria-label="Person details">
+    <button type="button" class="person-modal-close" id="personModalClose" aria-label="Close">&times;</button>
+    <div class="person-modal-avatar" id="modalAvatar"></div>
+    <div class="person-modal-name"     id="modalName"></div>
+    <div class="person-modal-relation" id="modalRelation"></div>
+    <div class="person-modal-note"     id="modalNote"></div>
+  </dialog>
+
+  <div id="footer-slot"></div>
+
+  <script src="js/nav.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

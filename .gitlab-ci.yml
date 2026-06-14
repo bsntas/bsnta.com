@@ -1,0 +1,13 @@
+# GitLab Pages deployment for bsnta.com
+# No build step needed — this is a pure static site.
+# GitLab Pages requires all files to be under a `public/` directory.
+
+pages:
+  script:
+    - mkdir -p public
+    - cp -r assets css js articles *.html public/
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'

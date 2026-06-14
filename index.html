@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basanta Sharma</title>
+  <meta name="description" content="PLACEHOLDER: Add a short personal description here.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div id="nav-slot"></div>
+
+  <main>
+
+    <!-- ── Hero ──────────────────────────────────────────── -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <span class="hero-eyebrow">Welcome to my corner of the internet</span>
+          <h1 class="hero-name">Basanta<br>Sharma</h1>
+          <p class="hero-title">
+            Network Software Engineer &nbsp;&middot;&nbsp;
+            Writer &nbsp;&middot;&nbsp;
+            <!-- PLACEHOLDER: Add more roles here -->
+            Explorer
+          </p>
+          <blockquote class="hero-motto">"Love is life, Live in Love"</blockquote>
+          <div class="hero-actions">
+            <a href="articles/index.html" class="btn btn-primary">Read My Articles</a>
+            <a href="gallery.html" class="btn btn-outline">View Gallery</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── About ──────────────────────────────────────────── -->
+    <section class="section">
+      <div class="container">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center;">
+          <div>
+            <div class="section-header">
+              <span class="eyebrow">About Me</span>
+              <h2>A little about<br>who I am</h2>
+            </div>
+            <!-- PLACEHOLDER: Replace the paragraph below with your bio -->
+            <p style="color:var(--text-muted); font-style:italic; margin-bottom:1rem;">
+              [PLACEHOLDER] Hi, I'm Basanta Sharma — a Network Software Engineer by day
+              and a writer at heart. I write poems and essays primarily in Nepali,
+              capturing thoughts on love, life, and the world around me.
+              This is a space where I share my work, my photographs, and the people
+              who matter most to me.
+            </p>
+            <p style="color:var(--text-muted); font-style:italic;">
+              [PLACEHOLDER] Feel free to add more paragraphs here about your background,
+              interests, philosophy, or anything you'd like to share.
+            </p>
+            <div class="mt-md">
+              <a href="#PLACEHOLDER_CV_LINK" class="btn btn-outline-dark">
+                Download CV
+              </a>
+            </div>
+          </div>
+          <div style="aspect-ratio:3/4; border-radius:var(--radius-lg); overflow:hidden;">
+            <img src="assets/images/me.jpg" alt="Basanta Sharma"
+                 style="width:100%; height:100%; object-fit:cover; object-position:center top;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Sections Nav ───────────────────────────────────── -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header center">
+          <span class="eyebrow">Explore</span>
+          <h2>What you'll find here</h2>
+        </div>
+        <div class="section-cards">
+          <a href="gallery.html" class="section-card animate">
+            <div class="section-card-icon icon-gallery">🖼️</div>
+            <h3>Gallery</h3>
+            <p>Photographs from travels, nature, and everyday moments.</p>
+          </a>
+          <a href="achievements.html" class="section-card animate delay-1">
+            <div class="section-card-icon icon-achieve">🏆</div>
+            <h3>Achievements</h3>
+            <p>Professional milestones, certifications, and personal victories.</p>
+          </a>
+          <a href="family.html" class="section-card animate delay-2">
+            <div class="section-card-icon icon-dear">❤️</div>
+            <h3>Family</h3>
+            <p>The people who make life richer — our family tree.</p>
+          </a>
+          <a href="articles/index.html" class="section-card animate delay-3">
+            <div class="section-card-icon icon-articles">✍️</div>
+            <h3>Articles</h3>
+            <p>Poems and essays, mostly in Nepali — reflections on life and love.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Recent Articles preview ───────────────────────── -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header" style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:1rem;">
+          <div>
+            <span class="eyebrow">Latest Writing</span>
+            <h2>Recent Articles</h2>
+          </div>
+          <a href="articles/index.html" class="btn btn-outline-dark">All Articles →</a>
+        </div>
+
+        <!-- PLACEHOLDER articles — replace with real ones as you write them -->
+        <div class="article-list">
+          <a href="articles/poems/tirtha.html" class="article-item" data-type="poem">
+            <span class="article-num">01</span>
+            <div>
+              <div class="article-title nepali">तीर्थ</div>
+              <div class="article-meta">
+                <span class="article-tag poem">कविता</span>
+              </div>
+              <div class="article-excerpt nepali">
+                तपाईंबाट उम्रिएकाे म, तपाईंको न्यानो काख छोडेर, म तीर्थ खोज्दै कता जाउँ?
+              </div>
+            </div>
+            <span class="article-date"></span>
+          </a>
+          <a href="articles/essays/placeholder-essay.html" class="article-item" data-type="essay">
+            <span class="article-num">02</span>
+            <div>
+              <div class="article-title nepali">शीर्षक यहाँ राख्नुहोस् (निबन्ध)</div>
+              <div class="article-meta">
+                <span class="article-tag essay">निबन्ध</span>
+                <span class="text-muted" style="font-size:0.8rem;">PLACEHOLDER — first essay</span>
+              </div>
+            </div>
+            <span class="article-date" style="color:var(--text-muted); font-style:italic;">Coming soon</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-slot"></div>
+
+  <script src="js/nav.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery — Basanta Sharma</title>
+  <meta name="description" content="Photo gallery — travels, nature, and moments in time.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div id="nav-slot"></div>
+
+  <main>
+
+    <header class="page-header">
+      <div class="container">
+        <p class="eyebrow">Photography</p>
+        <h1>Gallery</h1>
+        <!-- PLACEHOLDER: Add a short subtitle about your photography style/interests -->
+        <p>PLACEHOLDER — e.g. "Frames from the roads I've walked and the moments I've held still."</p>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="container">
+
+        <!-- Filter bar — update category names to match your photos -->
+        <div class="filter-bar">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="family">Family</button>
+          <button class="filter-btn" data-filter="travel">Travel</button>
+          <button class="filter-btn" data-filter="nature">Nature</button>
+          <button class="filter-btn" data-filter="events">Events</button>
+          <!-- PLACEHOLDER: Add or rename categories as needed -->
+        </div>
+
+        <div class="gallery-grid">
+
+          <div class="gallery-item" data-category="family"
+               data-src="assets/images/family.jpg" data-caption="Family">
+            <img src="assets/images/family.jpg" alt="Family" loading="lazy">
+            <div class="gallery-overlay">Family</div>
+          </div>
+
+          <div class="gallery-item" data-category="family"
+               data-src="assets/images/small_family.jpg" data-caption="Family">
+            <img src="assets/images/small_family.jpg" alt="Family" loading="lazy">
+            <div class="gallery-overlay">Family</div>
+          </div>
+
+          <div class="gallery-item" data-category="family"
+               data-src="assets/images/me_and_mom.jpg" data-caption="Me and Mom">
+            <img src="assets/images/me_and_mom.jpg" alt="Me and Mom" loading="lazy">
+            <div class="gallery-overlay">Me and Mom</div>
+          </div>
+
+          <div class="gallery-item" data-category="travel"
+               data-src="#" data-caption="PLACEHOLDER caption">
+            <div class="gallery-placeholder">
+              <span class="ph-icon">🏔️</span>
+              <span>Travel photo 1</span>
+            </div>
+            <div class="gallery-overlay">PLACEHOLDER caption</div>
+          </div>
+
+          <div class="gallery-item" data-category="travel"
+               data-src="#" data-caption="PLACEHOLDER caption">
+            <div class="gallery-placeholder">
+              <span class="ph-icon">🌏</span>
+              <span>Travel photo 2</span>
+            </div>
+            <div class="gallery-overlay">PLACEHOLDER caption</div>
+          </div>
+
+          <div class="gallery-item" data-category="nature"
+               data-src="#" data-caption="PLACEHOLDER caption">
+            <div class="gallery-placeholder">
+              <span class="ph-icon">🌿</span>
+              <span>Nature photo 1</span>
+            </div>
+            <div class="gallery-overlay">PLACEHOLDER caption</div>
+          </div>
+
+          <div class="gallery-item" data-category="nature"
+               data-src="#" data-caption="PLACEHOLDER caption">
+            <div class="gallery-placeholder">
+              <span class="ph-icon">🌸</span>
+              <span>Nature photo 2</span>
+            </div>
+            <div class="gallery-overlay">PLACEHOLDER caption</div>
+          </div>
+
+          <div class="gallery-item" data-category="events"
+               data-src="#" data-caption="PLACEHOLDER caption">
+            <div class="gallery-placeholder">
+              <span class="ph-icon">🎉</span>
+              <span>Event photo 1</span>
+            </div>
+            <div class="gallery-overlay">PLACEHOLDER caption</div>
+          </div>
+
+          <div class="gallery-item" data-category="events"
+               data-src="#" data-caption="PLACEHOLDER caption">
+            <div class="gallery-placeholder">
+              <span class="ph-icon">🎊</span>
+              <span>Event photo 2</span>
+            </div>
+            <div class="gallery-overlay">PLACEHOLDER caption</div>
+          </div>
+
+          <!-- Add more items following the same pattern -->
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Image viewer">
+    <button type="button" class="lightbox-close" aria-label="Close">&times;</button>
+    <img class="lightbox-img" src="" alt="">
+    <p class="lightbox-caption"></p>
+  </dialog>
+
+  <div id="footer-slot"></div>
+
+  <script src="js/nav.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
