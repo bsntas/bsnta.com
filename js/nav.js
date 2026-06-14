@@ -44,7 +44,10 @@ function socialLinksHTML(cls) {
 const NAV_HTML = `
 <nav class="nav" id="mainNav">
   <div class="container nav-inner">
-    <a href="${ROOT}index.html" class="nav-logo">Basanta <span>Sharma</span></a>
+    <a href="${ROOT}index.html" class="nav-logo">
+      <img src="${ROOT}assets/images/logo.svg" alt="Basanta Sharma logo" class="nav-logo-img">
+      Basanta <span>Sharma</span>
+    </a>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
       <span></span><span></span><span></span>
     </button>
@@ -106,13 +109,13 @@ const FOOTER_HTML = `
     );
   }
 
-  window.addEventListener('scroll', () => {
+  globalThis.addEventListener('scroll', () => {
     const nav = document.getElementById('mainNav');
-    if (nav) nav.classList.toggle('scrolled', window.scrollY > 20);
+    if (nav) nav.classList.toggle('scrolled', globalThis.scrollY > 20);
   }, { passive: true });
 
   /* Active link: compare resolved absolute hrefs */
-  const cur = window.location.href;
+  const cur = globalThis.location.href;
   document.querySelectorAll('.nav-links a').forEach(a => {
     const h = a.href; // browser resolves relative → absolute
     if (h === cur || cur.startsWith(h.replace('index.html', ''))) {
