@@ -38,11 +38,35 @@
   });
 })();
 
-/* ── Family tree modal ──────────────────────────────────────── */
+/* ── Family tree modal + cross-tree reveal ─────────────────── */
 (function familyTree() {
   const modal    = document.getElementById('personModal');
   const closeBtn = document.getElementById('personModalClose');
+  const linkBox  = document.getElementById('modalLink');
+  const linkBtn  = document.getElementById('modalLinkBtn');
   if (!modal) return;
+
+  function flashCard(el) {
+    el.classList.remove('ftperson--flash');
+    void el.offsetWidth;
+    el.classList.add('ftperson--flash');
+    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    el.addEventListener('animationend', () => el.classList.remove('ftperson--flash'), { once: true });
+  }
+
+  function revealSection(sectionId, targetId) {
+    const section = document.getElementById(sectionId);
+    const target  = document.getElementById(targetId);
+    if (!section || !target) return;
+    if (!section.classList.contains('is-open')) {
+      section.classList.add('is-open');
+      section.removeAttribute('aria-hidden');
+      /* Wait for expand animation, then scroll + flash */
+      setTimeout(() => flashCard(target), 500);
+    } else {
+      flashCard(target);
+    }
+  }
 
   document.querySelectorAll('.ftperson').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -54,12 +78,53 @@
         btn.querySelector('.ftrelation').textContent;
       document.getElementById('modalNote').textContent =
         btn.dataset.note || '';
+
+      const linkedId    = btn.dataset.linkedId;
+      const linkedLabel = btn.dataset.linkedLabel;
+      const revealsId   = btn.dataset.reveals;
+
+      if (linkedId && linkedLabel && linkBox && linkBtn) {
+        /* Sharma→Poudyal: opens hidden section first */
+        if (revealsId) {
+          linkBtn.textContent = `Meet Anisha's family — ${linkedLabel} ↓`;
+          linkBtn.onclick = () => {
+            modal.close();
+            revealSection(revealsId, linkedId);
+          };
+        } else {
+          /* Poudyal→Sharma: section already visible, just scroll */
+          linkBtn.textContent = `Also in: ${linkedLabel} ↑`;
+          linkBtn.onclick = () => {
+            modal.close();
+            flashCard(document.getElementById(linkedId));
+          };
+        }
+        linkBox.hidden = false;
+      } else if (linkBox) {
+        linkBox.hidden = true;
+      }
+
       modal.showModal();
     });
   });
 
   closeBtn.addEventListener('click', () => modal.close());
   modal.addEventListener('click', e => { if (e.target === modal) modal.close(); });
+
+  /* Collapse button on the Poudyal section */
+  const collapseBtn = document.getElementById('poudyalClose');
+  if (collapseBtn) {
+    collapseBtn.addEventListener('click', () => {
+      const section = document.getElementById('poudyal-section');
+      if (section) {
+        section.classList.remove('is-open');
+        section.setAttribute('aria-hidden', 'true');
+        /* Scroll back up to Anisha's card in the Sharma tree */
+        const anisha = document.getElementById('anisha-sharma');
+        if (anisha) anisha.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  }
 })();
 
 /* ── Article filter ─────────────────────────────────────── */

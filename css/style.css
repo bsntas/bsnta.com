@@ -456,7 +456,86 @@ dialog.lightbox::backdrop { background: transparent; }
   .ftree ul ul > li:last-child::after  { display: block; }
   /* Single child needs no stub */
   .ftree ul ul > li:only-child::after  { display: none; }
+
+  /* Root li must be left-aligned so the couple sits above the spine, not offset right */
+  .ftree ul > li { align-items: flex-start; }
 }
+
+/* ─── Poudyal tree reveal section ───────────────────────── */
+.ftree-reveal-section {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  /* opacity lags slightly so content isn't visible during collapse */
+  transition: max-height 0.65s ease, opacity 0.35s ease;
+}
+.ftree-reveal-section.is-open {
+  max-height: 3000px;
+  opacity: 1;
+  transition: max-height 0.65s ease, opacity 0.35s ease 0.15s;
+}
+
+.ftree-reveal-header {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 0.25rem;
+  padding: 2.5rem 0 1.75rem;
+  border-top: 1.5px solid var(--border);
+  margin-top: 2.5rem;
+}
+.ftree-reveal-title {
+  font-size: 1.35rem; font-weight: 700;
+  color: var(--primary); margin: 0;
+}
+.ftree-reveal-close {
+  margin-top: 0.75rem;
+  font: inherit; font-size: 0.8rem; font-weight: 600;
+  background: none; border: 1.5px solid var(--border);
+  border-radius: var(--radius); padding: 0.35rem 0.9rem;
+  cursor: pointer; color: var(--text-muted);
+  transition: all var(--t);
+}
+.ftree-reveal-close:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ── Linked person (appears in both trees) ───────────────── */
+.ftperson--linked {
+  border-color: #7c3aed;
+  position: relative;
+}
+.ftperson--linked::after {
+  content: '⟷';
+  position: absolute; top: 0.4rem; right: 0.45rem;
+  font-size: 0.65rem; color: #7c3aed; opacity: 0.75;
+  line-height: 1;
+}
+.ftperson--linked .ftrelation { color: #7c3aed; }
+
+/* Flash highlight when cross-navigating */
+@keyframes ftlink-flash {
+  0%, 100%    { opacity: 1; }
+  20%, 60%    { opacity: 0.3; }
+  40%, 80%    { opacity: 1; }
+}
+.ftperson--flash { animation: ftlink-flash 0.9s ease; will-change: opacity; }
+
+/* SVG connector drawn by JS */
+.ftlink-svg {
+  position: absolute; top: 0; left: 0;
+  pointer-events: none; overflow: visible;
+}
+
+/* Modal cross-link */
+.person-modal-link {
+  margin-top: 1.1rem; padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+.person-modal-link-btn {
+  font: inherit; font-size: 0.82rem; font-weight: 600;
+  background: none; border: 1.5px solid #7c3aed;
+  border-radius: var(--radius); padding: 0.45rem 1rem;
+  cursor: pointer; color: #7c3aed;
+  transition: all var(--t);
+}
+.person-modal-link-btn:hover { background: #f5f3ff; }
 
 /* ─── Person modal ───────────────────────────────────────── */
 dialog.person-modal {

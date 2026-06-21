@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Family — BSNTA</title>
-  <meta name="description" content="The Sharma family tree — the people at the heart of everything.">
+  <meta name="description" content="The Sharma and Poudyal family trees — the people at the heart of everything.">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/favicon-64.png" sizes="64x64" type="image/png">
   <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
@@ -28,11 +28,12 @@
     <section class="section">
       <div class="container">
 
+        <!-- ── Sharma Family Tree ────────────────────────────── -->
         <div class="ftree-wrap">
           <div class="ftree">
             <ul>
 
-              <!-- ── Generation 0: Basanta's Parents ───────── -->
+              <!-- ── Generation 0: Basanta's Parents ─────────── -->
               <li>
                 <div class="ftcouple">
                   <button type="button" class="ftperson"
@@ -50,8 +51,47 @@
                   </button>
                 </div>
 
-                <!-- ── Generation 1: Siblings ─────────────── -->
+                <!-- ── Generation 1: Siblings ──────────────────── -->
                 <ul>
+
+                  <!-- Sisir's family (elder brother — comes first) -->
+                  <li>
+                    <div class="ftcouple">
+                      <button type="button" class="ftperson"
+                              data-note="PLACEHOLDER — A warm note about Sisir.">
+                        <div class="ftavatar">👨</div>
+                        <div class="ftname">Sisir Sharma</div>
+                        <div class="ftrelation">Elder Brother</div>
+                      </button>
+                      <span class="ftheart" aria-hidden="true">♥</span>
+                      <button type="button" class="ftperson"
+                              data-note="PLACEHOLDER — A warm note about Gomati.">
+                        <div class="ftavatar">👩</div>
+                        <div class="ftname">Gomati Rai</div>
+                        <div class="ftrelation">Sister-in-law</div>
+                      </button>
+                    </div>
+
+                    <!-- ── Generation 2: Sisir's children ─── -->
+                    <ul>
+                      <li>
+                        <button type="button" class="ftperson ftperson--child"
+                                data-note="PLACEHOLDER — A warm note about Devanshi.">
+                          <div class="ftavatar">👧</div>
+                          <div class="ftname">Devanshi</div>
+                          <div class="ftrelation">Niece</div>
+                        </button>
+                      </li>
+                      <li>
+                        <button type="button" class="ftperson ftperson--child"
+                                data-note="PLACEHOLDER — A warm note about Shivanshi.">
+                          <div class="ftavatar">👧</div>
+                          <div class="ftname">Shivanshi</div>
+                          <div class="ftrelation">Niece</div>
+                        </button>
+                      </li>
+                    </ul>
+                  </li>
 
                   <!-- Basanta's family -->
                   <li>
@@ -63,8 +103,12 @@
                         <div class="ftrelation">Me</div>
                       </button>
                       <span class="ftheart" aria-hidden="true">♥</span>
-                      <button type="button" class="ftperson"
-                              data-note="PLACEHOLDER — A warm note about Anisha.">
+                      <button type="button" class="ftperson ftperson--linked"
+                              id="anisha-sharma"
+                              data-note="PLACEHOLDER — A warm note about Anisha."
+                              data-linked-id="anisha-poudyal"
+                              data-linked-label="Poudyal Family"
+                              data-reveals="poudyal-section">
                         <div class="ftavatar">👩</div>
                         <div class="ftname">Anisha Sharma</div>
                         <div class="ftrelation">Wife</div>
@@ -92,51 +136,70 @@
                     </ul>
                   </li>
 
-                  <!-- Sisir's family -->
-                  <li>
-                    <div class="ftcouple">
-                      <button type="button" class="ftperson"
-                              data-note="PLACEHOLDER — A warm note about Sisir.">
-                        <div class="ftavatar">👨</div>
-                        <div class="ftname">Sisir Sharma</div>
-                        <div class="ftrelation">Brother</div>
-                      </button>
-                      <span class="ftheart" aria-hidden="true">♥</span>
-                      <button type="button" class="ftperson"
-                              data-note="PLACEHOLDER — A warm note about Gomati.">
-                        <div class="ftavatar">👩</div>
-                        <div class="ftname">Gomati Rai</div>
-                        <div class="ftrelation">Sister-in-law</div>
-                      </button>
-                    </div>
-
-                    <!-- ── Generation 2: Sisir's children ─── -->
-                    <ul>
-                      <li>
-                        <button type="button" class="ftperson ftperson--child"
-                                data-note="PLACEHOLDER — A warm note about Shivanshi.">
-                          <div class="ftavatar">👧</div>
-                          <div class="ftname">Shivanshi</div>
-                          <div class="ftrelation">Niece</div>
-                        </button>
-                      </li>
-                      <li>
-                        <button type="button" class="ftperson ftperson--child"
-                                data-note="PLACEHOLDER — A warm note about Devanshi.">
-                          <div class="ftavatar">👧</div>
-                          <div class="ftname">Devanshi</div>
-                          <div class="ftrelation">Niece</div>
-                        </button>
-                      </li>
-                    </ul>
-                  </li>
-
                 </ul>
               </li>
 
             </ul>
           </div>
-        </div><!-- .ftree-wrap -->
+        </div><!-- .ftree-wrap (Sharma) -->
+
+        <!-- ── Poudyal Family Tree (hidden; revealed via Anisha's card) ── -->
+        <div class="ftree-reveal-section" id="poudyal-section" aria-hidden="true">
+          <div class="ftree-reveal-header">
+            <p class="eyebrow">Anisha's Side</p>
+            <h2 class="ftree-reveal-title">Poudyal Family</h2>
+            <button type="button" class="ftree-reveal-close" id="poudyalClose">↑ Collapse</button>
+          </div>
+          <div class="ftree-wrap">
+            <div class="ftree">
+              <ul>
+
+                <!-- ── Generation 0: Anisha's Parents ──────── -->
+                <li>
+                  <div class="ftcouple">
+                    <button type="button" class="ftperson"
+                            data-note="PLACEHOLDER — A warm note about Lalit Poudyal.">
+                      <div class="ftavatar">👨</div>
+                      <div class="ftname">Lalit Poudyal</div>
+                      <div class="ftrelation">Father-in-law</div>
+                    </button>
+                    <span class="ftheart" aria-hidden="true">♥</span>
+                    <button type="button" class="ftperson"
+                            data-note="PLACEHOLDER — A warm note about Bindu Poudyal.">
+                      <div class="ftavatar">👩</div>
+                      <div class="ftname">Bindu Poudyal</div>
+                      <div class="ftrelation">Mother-in-law</div>
+                    </button>
+                  </div>
+
+                  <!-- ── Generation 1: Anisha's siblings ──── -->
+                  <ul>
+                    <li>
+                      <button type="button" class="ftperson ftperson--linked"
+                              id="anisha-poudyal"
+                              data-note="PLACEHOLDER — A warm note about Anisha."
+                              data-linked-id="anisha-sharma"
+                              data-linked-label="Sharma Family">
+                        <div class="ftavatar">👩</div>
+                        <div class="ftname">Anisha Sharma</div>
+                        <div class="ftrelation">Daughter</div>
+                      </button>
+                    </li>
+                    <li>
+                      <button type="button" class="ftperson"
+                              data-note="PLACEHOLDER — A warm note about Akriti.">
+                        <div class="ftavatar">👧</div>
+                        <div class="ftname">Akriti Poudyal</div>
+                        <div class="ftrelation">Younger Sibling</div>
+                      </button>
+                    </li>
+                  </ul>
+                </li>
+
+              </ul>
+            </div>
+          </div><!-- .ftree-wrap (Poudyal) -->
+        </div><!-- .ftree-reveal-section -->
 
       </div>
     </section>
@@ -149,6 +212,9 @@
     <div class="person-modal-name"     id="modalName"></div>
     <div class="person-modal-relation" id="modalRelation"></div>
     <div class="person-modal-note"     id="modalNote"></div>
+    <div class="person-modal-link"     id="modalLink" hidden>
+      <button type="button" class="person-modal-link-btn" id="modalLinkBtn"></button>
+    </div>
   </dialog>
 
   <div id="footer-slot"></div>
