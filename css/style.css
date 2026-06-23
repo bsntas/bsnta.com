@@ -721,6 +721,163 @@ dialog.person-modal::backdrop { background: rgba(0,0,0,0.55); }
 .mb-md { margin-bottom: 2rem; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
 
+/* ─── Professional Polish ─────────────────────────────────── */
+
+/* ── Custom scrollbar ──────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+::selection { background: rgba(201,74,63,0.15); }
+
+/* ── Hero enhancements ─────────────────────────────────────── */
+.hero::after {
+  content: ''; position: absolute; inset: 0; z-index: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.055) 1px, transparent 1px);
+  background-size: 36px 36px; pointer-events: none;
+}
+
+.hero-scroll {
+  position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+  color: rgba(255,255,255,0.35); font-size: 0.68rem; letter-spacing: 0.14em;
+  text-transform: uppercase; user-select: none; z-index: 1;
+}
+.hero-scroll svg {
+  width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2px;
+  stroke-linecap: round; stroke-linejoin: round;
+  animation: scroll-bounce 2.4s ease-in-out infinite;
+}
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateY(0);   opacity: 0.35; }
+  50%       { transform: translateY(6px); opacity: 0.85; }
+}
+@media (max-width: 768px) { .hero-scroll { display: none; } }
+
+/* ── About grid (replaces inline styles) ───────────────────── */
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 4rem; align-items: center;
+}
+@media (max-width: 768px) {
+  .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .about-photo-wrap { max-width: 320px; margin: 0 auto; }
+}
+.about-photo-wrap {
+  aspect-ratio: 3/4; border-radius: var(--radius-lg); overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+.about-photo-wrap img {
+  width: 100%; height: 100%; object-fit: cover; object-position: center top;
+}
+
+/* ── Stats row ─────────────────────────────────────────────── */
+.stats-row {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1px; background: var(--border);
+  border: 1px solid var(--border); border-radius: var(--radius-lg);
+  overflow: hidden; margin-top: 4rem;
+}
+.stat-item {
+  background: var(--white); padding: 2rem 1rem; text-align: center;
+  transition: background var(--t);
+}
+.stat-item:hover { background: var(--bg); }
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 3.5vw, 2.75rem); font-weight: 700;
+  color: var(--primary); line-height: 1; display: block;
+}
+.stat-num sup { font-size: 0.55em; vertical-align: super; font-weight: 600; }
+.stat-label {
+  font-size: 0.75rem; color: var(--text-muted);
+  margin-top: 0.5rem; display: block; font-weight: 500; line-height: 1.4;
+}
+@media (max-width: 640px) { .stats-row { grid-template-columns: repeat(2, 1fr); } }
+
+/* ── Section card icon polish ──────────────────────────────── */
+.section-card-icon { transition: transform 0.4s var(--ease); }
+.section-card:hover .section-card-icon { transform: scale(1.1) rotate(-4deg); }
+.section-card-icon svg {
+  width: 28px; height: 28px;
+  stroke-linecap: round; stroke-linejoin: round; fill: none; stroke-width: 1.5;
+}
+.icon-gallery  { color: #b45309; }
+.icon-achieve  { color: #15803d; }
+.icon-dear     { color: #be123c; }
+.icon-articles { color: #6d28d9; }
+.icon-games    { background: #e8f0fe; }
+
+/* ── Back to top ───────────────────────────────────────────── */
+.back-to-top {
+  position: fixed; bottom: 2rem; right: 2rem; z-index: 900;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--primary); color: white; border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  opacity: 0; transform: translateY(10px);
+  transition: opacity var(--t), transform var(--t), background var(--t), box-shadow var(--t);
+  pointer-events: none;
+}
+.back-to-top.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.back-to-top:hover { background: var(--accent); box-shadow: 0 6px 24px rgba(201,74,63,0.4); }
+.back-to-top svg {
+  width: 18px; height: 18px; fill: none; stroke: currentColor;
+  stroke-width: 2.5px; stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* ── Page header gradient polish ───────────────────────────── */
+.page-header {
+  background: linear-gradient(140deg, var(--primary) 0%, #253d56 60%, #1a3a2e 100%);
+  position: relative; overflow: hidden;
+}
+.page-header::after {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 80% 50%, rgba(212,168,83,0.08) 0%, transparent 55%);
+  pointer-events: none;
+}
+.page-header .container { position: relative; z-index: 1; }
+
+/* ── Timeline hover ────────────────────────────────────────── */
+.timeline-title { transition: color var(--t); }
+.timeline-item:hover .timeline-title { color: var(--accent); }
+
+/* ── CTA section ───────────────────────────────────────────── */
+.cta-section {
+  background: linear-gradient(140deg, var(--primary) 0%, #253d56 60%, #1a3a2e 100%);
+  padding: 5.5rem 0; text-align: center; position: relative; overflow: hidden;
+}
+.cta-section::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(212,168,83,0.12) 0%, transparent 55%);
+  pointer-events: none;
+}
+.cta-section .container { position: relative; z-index: 1; }
+.cta-section .eyebrow { color: var(--accent-warm); }
+.cta-section h2 { color: white; font-size: clamp(1.75rem, 3.5vw, 2.5rem); margin-bottom: 1rem; }
+.cta-section p { color: rgba(255,255,255,0.6); max-width: 480px; margin: 0 auto 2.5rem; font-size: 1rem; }
+
+/* ── Footer nav links ──────────────────────────────────────── */
+.footer-nav {
+  display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 1rem;
+}
+.footer-nav a {
+  font-size: 0.8rem; font-weight: 500;
+  color: rgba(255,255,255,0.45); text-decoration: none;
+  transition: color var(--t); letter-spacing: 0.02em;
+}
+.footer-nav a:hover { color: rgba(255,255,255,0.9); }
+
+/* ── Reading progress bar ──────────────────────────────────── */
+.reading-progress {
+  position: fixed; top: var(--nav-h); left: 0; right: 0; height: 3px;
+  background: transparent; z-index: 999; pointer-events: none;
+}
+.reading-progress-bar {
+  height: 100%; background: var(--accent); width: 0%;
+  transition: width 0.1s linear;
+}
+
 /* ─── Creations Corner ───────────────────────────────────── */
 .game-grid {
   display: grid;
