@@ -93,6 +93,7 @@ main { padding-top: var(--nav-h); }
 .nav-toggle.open span:nth-child(2) { opacity: 0; }
 .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
+/* Nav-only mobile overrides (hero overrides are after the hero section below) */
 @media (max-width: 768px) {
   .nav-toggle { display: flex; }
   .nav-links {
@@ -103,10 +104,6 @@ main { padding-top: var(--nav-h); }
     border-bottom: 1px solid var(--border); box-shadow: var(--shadow);
   }
   .nav-links.open { display: flex; }
-  .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
-  .hero-motto { margin-left: auto; margin-right: auto; }
-  .hero-actions { justify-content: center; }
-  .hero-logo-bg { width: min(220px, 65vw); }
 }
 
 /* ─── Hero ──────────────────────────────────────────────────────── */
@@ -167,6 +164,14 @@ main { padding-top: var(--nav-h); }
   padding-left: 1.25rem; margin: 2rem 0 2.5rem; line-height: 1.5;
 }
 .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+/* Hero mobile overrides — MUST come after the base hero styles above */
+@media (max-width: 768px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
+  .hero-motto { margin-left: auto; margin-right: auto; }
+  .hero-actions { justify-content: center; }
+  .hero-logo-bg { width: min(220px, 65vw); }
+}
 
 /* ─── Buttons ────────────────────────────────────────────────────── */
 .btn {
@@ -575,7 +580,7 @@ dialog.person-modal::backdrop { background: rgba(0,0,0,0.55); }
 }
 
 /* ─── Article / Post page ────────────────────────────────────────────────── */
-.post-wrap { max-width: 760px; margin: 0 auto; }
+.post-wrap { max-width: 760px; margin: 0 auto; padding: 0 1.5rem; }
 .post-header { padding: 3rem 0 2.25rem; border-bottom: 1px solid var(--border); margin-bottom: 2.5rem; }
 .post-eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
 .post-title { font-size: clamp(1.8rem, 4.5vw, 3rem); margin-bottom: 1rem; }
