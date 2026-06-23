@@ -150,13 +150,11 @@ const FOOTER_HTML = `
     }
   }, { passive: true });
 
-  /* Active link: compare resolved absolute hrefs */
-  const cur = globalThis.location.href;
+  /* Active link: exact pathname match (strip trailing index.html first) */
+  const _normPath = p => p.endsWith('/index.html') ? p.slice(0, -'index.html'.length) : p;
+  const _curPath  = _normPath(globalThis.location.pathname);
   document.querySelectorAll('.nav-links a').forEach(a => {
-    const h = a.href;
-    if (h === cur || cur.startsWith(h.replace('index.html', ''))) {
-      a.classList.add('active');
-    }
+    if (_normPath(new URL(a.href).pathname) === _curPath) a.classList.add('active');
   });
 
   /* Scroll-in animations */
