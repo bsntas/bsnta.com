@@ -25,7 +25,7 @@
 
 /* ─── Reset ───────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { font-size: 16px; scroll-behavior: smooth; }
+html { color-scheme: light dark; font-size: 16px; scroll-behavior: smooth; }
 body {
   font-family: 'Inter', system-ui, sans-serif;
   background: var(--bg); color: var(--text);
@@ -886,4 +886,71 @@ dialog.person-modal::backdrop { background: rgba(0,0,0,0.55); }
   padding: 1.25rem 1.5rem 1.5rem;
   display: flex; gap: 0.75rem; flex-wrap: wrap;
   border-top: 1px solid var(--border);
+}
+
+/* ─── Dark mode ──────────────────────────────────────────────────────────────── */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:         #0e1c28;
+    --bg-alt:     #152232;
+    --white:      #1a2d40;
+    --text:       #dde9f2;
+    --text-muted: #7fa3b7;
+    --border:     #243749;
+    --shadow-sm:  0 1px 8px rgba(0,0,0,0.4);
+    --shadow:     0 4px 24px rgba(0,0,0,0.55);
+    --shadow-lg:  0 8px 48px rgba(0,0,0,0.75);
+  }
+
+  /* Elements that hardcode color: var(--primary) for dark-on-light text */
+  h1, h2, h3, h4,
+  .nav-logo,
+  .article-title,
+  .timeline-title,
+  .ftname,
+  .person-modal-name,
+  .ftree-reveal-title,
+  .stat-num { color: #c5d5e3; }
+
+  /* Hero/footer/page-header headings stay white — their parent overrides win */
+
+  /* Nav */
+  .nav { background: rgba(14, 28, 40, 0.97); }
+  .nav-links a { color: var(--text); }
+
+  /* Back-to-top: var(--primary) on dark bg is near-invisible */
+  .back-to-top { background: #253d56; }
+
+  /* Gallery filter active/hover */
+  .filter-btn:hover, .filter-btn.active {
+    background: #253d56; color: white; border-color: #253d56;
+  }
+
+  /* Section card icons: tinted dark backgrounds + brighter icon colours */
+  .icon-gallery  { background: rgba(254,243,226,0.1); color: #f59e0b; }
+  .icon-achieve  { background: rgba(232,244,232,0.1); color: #4ade80; }
+  .icon-dear     { background: rgba(252,228,236,0.1); color: #fb7185; }
+  .icon-articles { background: rgba(235,232,245,0.1); color: #a78bfa; }
+  .icon-games    { background: rgba(232,240,254,0.1); color: #60a5fa; }
+
+  /* Article tags */
+  .article-tag.poem  { background: rgba(235,232,245,0.15); color: #c4b5fd; }
+  .article-tag.essay { background: rgba(232,244,232,0.15); color: #86efac; }
+
+  /* Timeline dot fill */
+  .timeline-item::before { background: var(--bg); }
+
+  /* Family tree */
+  .ftperson--you { background: linear-gradient(135deg, #1e2d1a, #192614); }
+
+  /* Modals */
+  dialog.person-modal { background: var(--white); }
+  .person-modal-link-btn:hover { background: rgba(124,58,237,0.15); }
+
+  /* btn-outline-dark: primary border/text becomes invisible on dark */
+  .btn-outline-dark { color: #c5d5e3; border-color: #c5d5e3; }
+  .btn-outline-dark:hover { background: #c5d5e3; color: var(--bg); }
+
+  /* Selection */
+  ::selection { background: rgba(201,74,63,0.35); }
 }
