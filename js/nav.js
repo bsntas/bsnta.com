@@ -56,7 +56,7 @@ const NAV_HTML = `
       <li><a href="${ROOT}gallery.html">Gallery</a></li>
       <li><a href="${ROOT}achievements.html">Achievements</a></li>
       <li><a href="${ROOT}family.html">Family</a></li>
-      <li><a href="${ROOT}articles/index.html">Articles</a></li>
+      <li><a href="${ROOT}articles/index.html">Reflections</a></li>
       <li><a href="${ROOT}creations.html">Creations</a></li>
     </ul>
   </div>
@@ -78,7 +78,7 @@ const FOOTER_HTML = `
           <a href="${ROOT}gallery.html">Gallery</a>
           <a href="${ROOT}achievements.html">Achievements</a>
           <a href="${ROOT}family.html">Family</a>
-          <a href="${ROOT}articles/index.html">Articles</a>
+          <a href="${ROOT}articles/index.html">Reflections</a>
           <a href="${ROOT}creations.html">Creations</a>
         </nav>
       </div>
