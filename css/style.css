@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Noto+Sans+Devanagari:wght@400;500;600&display=swap');
 
-/* ─── Variables ─────────────────────────────────────────── */
+/* ─── Variables ──────────────────────────────────────────────── */
 :root {
   --primary:      #1c2b3a;
   --accent:       #c94a3f;
@@ -23,7 +23,7 @@
   --t:            0.3s var(--ease);
 }
 
-/* ─── Reset ─────────────────────────────────────────────── */
+/* ─── Reset ────────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { font-size: 16px; scroll-behavior: smooth; }
 body {
@@ -34,7 +34,7 @@ body {
 img { display: block; max-width: 100%; }
 a { color: inherit; }
 
-/* ─── Typography ─────────────────────────────────────────── */
+/* ─── Typography ────────────────────────────────────────────────── */
 h1, h2, h3, h4 {
   font-family: 'Playfair Display', Georgia, serif;
   line-height: 1.25; color: var(--primary);
@@ -44,11 +44,11 @@ h1, h2, h3, h4 {
   line-height: 1.9;
 }
 
-/* ─── Layout ─────────────────────────────────────────────── */
+/* ─── Layout ───────────────────────────────────────────────────── */
 .container { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 1.5rem; }
 main { padding-top: var(--nav-h); }
 
-/* ─── Navigation ─────────────────────────────────────────── */
+/* ─── Navigation ────────────────────────────────────────────────── */
 .nav {
   position: fixed; top: 0; left: 0; right: 0;
   height: var(--nav-h);
@@ -93,6 +93,7 @@ main { padding-top: var(--nav-h); }
 .nav-toggle.open span:nth-child(2) { opacity: 0; }
 .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
+/* Nav-only mobile overrides (hero overrides are after the hero section below) */
 @media (max-width: 768px) {
   .nav-toggle { display: flex; }
   .nav-links {
@@ -103,13 +104,9 @@ main { padding-top: var(--nav-h); }
     border-bottom: 1px solid var(--border); box-shadow: var(--shadow);
   }
   .nav-links.open { display: flex; }
-  .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
-  .hero-motto { margin-left: auto; margin-right: auto; }
-  .hero-actions { justify-content: center; }
-  .hero-logo-bg { width: min(240px, 60vw); animation: none; }
 }
 
-/* ─── Hero ───────────────────────────────────────────────── */
+/* ─── Hero ──────────────────────────────────────────────────────── */
 .hero {
   min-height: 90vh; display: flex; align-items: center;
   background: linear-gradient(140deg, var(--primary) 0%, #253d56 60%, #1a3a2e 100%);
@@ -168,7 +165,15 @@ main { padding-top: var(--nav-h); }
 }
 .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
 
-/* ─── Buttons ────────────────────────────────────────────── */
+/* Hero mobile overrides — MUST come after the base hero styles above */
+@media (max-width: 768px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
+  .hero-motto { margin-left: auto; margin-right: auto; }
+  .hero-actions { justify-content: center; }
+  .hero-logo-bg { width: min(220px, 65vw); }
+}
+
+/* ─── Buttons ────────────────────────────────────────────────────── */
 .btn {
   display: inline-flex; align-items: center; gap: 0.5rem;
   padding: 0.8rem 1.75rem; border-radius: var(--radius);
@@ -183,7 +188,7 @@ main { padding-top: var(--nav-h); }
 .btn-outline-dark { background: transparent; color: var(--primary); border-color: var(--primary); }
 .btn-outline-dark:hover { background: var(--primary); color: white; transform: translateY(-2px); }
 
-/* ─── Sections ───────────────────────────────────────────── */
+/* ─── Sections ────────────────────────────────────────────────────── */
 .section { padding: 5rem 0; }
 .section-alt { background: var(--bg-alt); }
 .section-header { margin-bottom: 3rem; }
@@ -197,7 +202,7 @@ main { padding-top: var(--nav-h); }
 .section-header.center { text-align: center; }
 .section-header.center p { margin: 0.75rem auto 0; }
 
-/* ─── Home: Section Nav Cards ────────────────────────────── */
+/* ─── Home: Section Nav Cards ────────────────────────────────────────── */
 .section-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -224,7 +229,7 @@ main { padding-top: var(--nav-h); }
 .section-card h3 { font-size: 1.1rem; }
 .section-card p { font-size: 0.875rem; color: var(--text-muted); line-height: 1.5; }
 
-/* ─── Gallery ────────────────────────────────────────────── */
+/* ─── Gallery ─────────────────────────────────────────────────────── */
 .filter-bar { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
 .filter-btn {
   padding: 0.4rem 1.1rem; border-radius: 100px;
@@ -262,7 +267,7 @@ main { padding-top: var(--nav-h); }
 }
 .gallery-item:hover .gallery-overlay { opacity: 1; }
 
-/* ─── Lightbox ───────────────────────────────────────────── */
+/* ─── Lightbox ────────────────────────────────────────────────────── */
 dialog.lightbox {
   display: none; border: none; padding: 2rem;
   background: rgba(0,0,0,0.9);
@@ -282,7 +287,7 @@ dialog.lightbox::backdrop { background: transparent; }
   color: rgba(255,255,255,0.75); font-size: 0.9rem; text-align: center;
 }
 
-/* ─── Achievements Timeline ──────────────────────────────── */
+/* ─── Achievements Timeline ──────────────────────────────────────────── */
 .timeline-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
 @media (max-width: 768px) { .timeline-grid { grid-template-columns: 1fr; } }
 .timeline-col h3 { font-size: 1.1rem; margin-bottom: 1.75rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--border); }
@@ -305,22 +310,18 @@ dialog.lightbox::backdrop { background: transparent; }
 .timeline-title { font-size: 1.05rem; font-weight: 600; color: var(--primary); margin-bottom: 0.4rem; }
 .timeline-body { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
 
-/* ─── Family Tree ────────────────────────────────────────── */
+/* ─── Family Tree ──────────────────────────────────────────────────── */
 .ftree-wrap { overflow-x: auto; padding-bottom: 1rem; }
 
 .ftree ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; align-items: center; }
 .ftree ul > li { display: flex; flex-direction: column; align-items: center; }
 
-/* Siblings sit side-by-side — gap: 0 so ::before covers the full span */
 .ftree ul ul {
   flex-direction: row; gap: 0;
   padding-top: 3.5rem;
   position: relative;
 }
 
-/* ── Connector lines ─────────────────────────────────────── */
-
-/* Vertical from parent node down to horizontal midpoint */
 .ftree ul ul::before {
   content: ''; position: absolute;
   top: 0; left: 50%; transform: translateX(-1px);
@@ -328,8 +329,6 @@ dialog.lightbox::backdrop { background: transparent; }
   background: var(--border);
 }
 
-/* Each sibling li provides its share of the horizontal line.
-   Padding (not gap) is used so ::before spans the full space including the gutter. */
 .ftree ul ul > li { position: relative; display: flex; flex-direction: column; align-items: center; padding: 0 1.5rem; }
 
 .ftree ul ul > li::before {
@@ -337,12 +336,10 @@ dialog.lightbox::backdrop { background: transparent; }
   top: -1.75rem; left: 0; right: 0; height: 2px;
   background: var(--border);
 }
-/* Trim ends so line only runs centre-to-centre */
 .ftree ul ul > li:first-child::before { left: 50%; }
 .ftree ul ul > li:last-child::before  { right: 50%; }
 .ftree ul ul > li:only-child::before  { display: none; }
 
-/* Vertical from horizontal down to each node */
 .ftree ul ul > li::after {
   content: ''; position: absolute;
   top: -1.75rem; left: 50%; transform: translateX(-1px);
@@ -350,11 +347,9 @@ dialog.lightbox::backdrop { background: transparent; }
   background: var(--border);
 }
 
-/* ── Couple layout ───────────────────────────────────────── */
 .ftcouple { display: flex; align-items: center; gap: 0.6rem; }
 .ftheart  { font-size: 1.1rem; color: var(--accent); flex-shrink: 0; }
 
-/* ── Person card ─────────────────────────────────────────── */
 .ftperson {
   appearance: none; font-family: inherit;
   background: var(--white); border: 1.5px solid var(--border);
@@ -377,14 +372,11 @@ dialog.lightbox::backdrop { background: transparent; }
 .ftname     { font-size: 0.9rem;  font-weight: 600; color: var(--primary); line-height: 1.3; }
 .ftrelation { font-size: 0.72rem; font-weight: 700; color: var(--accent);  text-transform: uppercase; letter-spacing: 0.06em; }
 
-/* Me */
 .ftperson--you { border-color: var(--accent-warm); background: linear-gradient(135deg,#fffdf7,#fff8e8); }
 .ftperson--you .ftrelation { color: var(--accent-warm); }
 
-/* Children */
 .ftperson--child .ftavatar { border-color: #c8e6c9; background: #f1f8f1; }
 
-/* Expected child */
 .ftperson--expected {
   border: 2px dashed var(--border); background: var(--bg-alt);
 }
@@ -396,10 +388,7 @@ dialog.lightbox::backdrop { background: transparent; }
   50%       { transform: scale(0.9); opacity: 0.45; }
 }
 
-/* ─── Mobile/tablet: left-indented tree (≤820px) ────────── */
 @media (max-width: 820px) {
-
-  /* Compact cards */
   .ftperson    { width: 124px; padding: 0.85rem 0.7rem; }
   .ftavatar    { width: 62px;  height: 62px; font-size: 1.8rem; }
   .ftname      { font-size: 0.76rem; }
@@ -408,44 +397,34 @@ dialog.lightbox::backdrop { background: transparent; }
   .ftcouple    { gap: 0.5rem; }
   .ftree       { min-width: 0; }
 
-  /* Each child list indents right; column flow */
   .ftree ul ul {
     flex-direction: column;
     align-items: flex-start;
-    padding-top: 1.25rem;   /* space occupied by the vertical stem above first child */
-    padding-left: 2.25rem;  /* indentation per generation */
+    padding-top: 1.25rem;
+    padding-left: 2.25rem;
     gap: 0;
   }
 
-  /* Short vertical stem from parent node down to the first branch junction */
   .ftree ul ul::before {
     top: 0; left: 0; transform: none;
     width: 2px; height: 1.25rem;
   }
 
-  /* Each branch li: left-aligned, spacing below connects to next sibling's spine */
   .ftree ul ul > li {
     display: flex; flex-direction: column; align-items: flex-start;
     padding: 0 0 1.5rem;
     position: relative;
   }
 
-  /* ┃ Vertical spine — shared left rail connecting all siblings.
-       Runs the full height of the li (including padding-bottom) so
-       consecutive spines merge into one continuous line. */
   .ftree ul ul > li::before {
     display: block;
     left: -2.25rem; right: auto; top: 0;
     width: 2px; height: 100%;
   }
-  /* Last sibling: spine ends at the branch junction, not the full height */
   .ftree ul ul > li:last-child::before  { height: 2.5rem; right: auto; }
-  /* Override desktop first-child left-trim */
   .ftree ul ul > li:first-child::before { left: -2.25rem; }
-  /* Single child needs no spine */
   .ftree ul ul > li:only-child::before  { display: none; }
 
-  /* ─ Horizontal L-stub from spine to card */
   .ftree ul ul > li::after {
     display: block;
     left: -2.25rem; right: auto;
@@ -453,21 +432,16 @@ dialog.lightbox::backdrop { background: transparent; }
     transform: none;
     width: 2.25rem; height: 2px;
   }
-  /* Last child needs its stub too (desktop hides ::after for last-child) */
   .ftree ul ul > li:last-child::after  { display: block; }
-  /* Single child needs no stub */
   .ftree ul ul > li:only-child::after  { display: none; }
 
-  /* Root li must be left-aligned so the couple sits above the spine, not offset right */
   .ftree ul > li { align-items: flex-start; }
 }
 
-/* ─── Poudyal tree reveal section ───────────────────────── */
 .ftree-reveal-section {
   overflow: hidden;
   max-height: 0;
   opacity: 0;
-  /* opacity lags slightly so content isn't visible during collapse */
   transition: max-height 0.65s ease, opacity 0.35s ease;
 }
 .ftree-reveal-section.is-open {
@@ -497,20 +471,18 @@ dialog.lightbox::backdrop { background: transparent; }
 }
 .ftree-reveal-close:hover { border-color: var(--accent); color: var(--accent); }
 
-/* ── Linked person (appears in both trees) ───────────────── */
 .ftperson--linked {
   border-color: #7c3aed;
   position: relative;
 }
 .ftperson--linked::after {
-  content: '⇷';
+  content: '\21B7';
   position: absolute; top: 0.4rem; right: 0.45rem;
   font-size: 0.65rem; color: #7c3aed; opacity: 0.75;
   line-height: 1;
 }
 .ftperson--linked .ftrelation { color: #7c3aed; }
 
-/* Flash highlight when cross-navigating */
 @keyframes ftlink-flash {
   0%, 100%    { opacity: 1; }
   20%, 60%    { opacity: 0.3; }
@@ -518,13 +490,11 @@ dialog.lightbox::backdrop { background: transparent; }
 }
 .ftperson--flash { animation: ftlink-flash 0.9s ease; will-change: opacity; }
 
-/* SVG connector drawn by JS */
 .ftlink-svg {
   position: absolute; top: 0; left: 0;
   pointer-events: none; overflow: visible;
 }
 
-/* Modal cross-link */
 .person-modal-link {
   margin-top: 1.1rem; padding-top: 1rem;
   border-top: 1px solid var(--border);
@@ -538,7 +508,7 @@ dialog.lightbox::backdrop { background: transparent; }
 }
 .person-modal-link-btn:hover { background: #f5f3ff; }
 
-/* ─── Person modal ───────────────────────────────────────── */
+/* ─── Person modal ──────────────────────────────────────────────────── */
 dialog.person-modal {
   display: none; border: none; border-radius: var(--radius-lg);
   padding: 2.5rem 2rem; text-align: center;
@@ -572,7 +542,7 @@ dialog.person-modal::backdrop { background: rgba(0,0,0,0.55); }
 }
 .person-modal-note { font-size: 1rem; color: var(--text-muted); font-style: italic; line-height: 1.7; }
 
-/* ─── Article List ───────────────────────────────────────── */
+/* ─── Article List ───────────────────────────────────────────────────── */
 .article-list { display: flex; flex-direction: column; }
 .article-item {
   display: grid; grid-template-columns: 3rem 1fr 7rem;
@@ -609,8 +579,8 @@ dialog.person-modal::backdrop { background: rgba(0,0,0,0.55); }
   .article-num, .article-date { display: none; }
 }
 
-/* ─── Article / Post page ────────────────────────────────── */
-.post-wrap { max-width: 760px; margin: 0 auto; }
+/* ─── Article / Post page ────────────────────────────────────────────────── */
+.post-wrap { max-width: 760px; margin: 0 auto; padding: 0 1.5rem; }
 .post-header { padding: 3rem 0 2.25rem; border-bottom: 1px solid var(--border); margin-bottom: 2.5rem; }
 .post-eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
 .post-title { font-size: clamp(1.8rem, 4.5vw, 3rem); margin-bottom: 1rem; }
@@ -647,7 +617,7 @@ dialog.person-modal::backdrop { background: rgba(0,0,0,0.55); }
 .post-nav a { color: var(--text-muted); text-decoration: none; transition: color var(--t); }
 .post-nav a:hover { color: var(--accent); }
 
-/* ─── Social Links ───────────────────────────────────────── */
+/* ─── Social Links ──────────────────────────────────────────────────── */
 .social-links { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; }
 .social-link {
   width: 40px; height: 40px; border-radius: 50%;
@@ -658,7 +628,7 @@ dialog.person-modal::backdrop { background: rgba(0,0,0,0.55); }
 .social-link:hover { color: var(--accent); border-color: var(--accent); transform: translateY(-2px); }
 .social-link svg { width: 18px; height: 18px; fill: currentColor; }
 
-/* ─── Footer ─────────────────────────────────────────────── */
+/* ─── Footer ──────────────────────────────────────────────────────── */
 .footer { background: var(--primary); color: rgba(255,255,255,0.65); padding: 3.5rem 0 2rem; }
 .footer-top {
   display: grid; grid-template-columns: 1fr auto;
@@ -686,7 +656,7 @@ dialog.person-modal::backdrop { background: rgba(0,0,0,0.55); }
   .footer-bottom { flex-direction: column; text-align: center; }
 }
 
-/* ─── Animations ─────────────────────────────────────────── */
+/* ─── Animations ────────────────────────────────────────────────────── */
 .animate {
   opacity: 0; transform: translateY(22px);
   transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
@@ -697,7 +667,7 @@ dialog.person-modal::backdrop { background: rgba(0,0,0,0.55); }
 .animate.delay-4 { transition-delay: 0.4s; }
 .animate.visible { opacity: 1; transform: translateY(0); }
 
-/* ─── Page header (non-home pages) ──────────────────────── */
+/* ─── Page header (non-home pages) ───────────────────────────────────────── */
 .page-header {
   background: var(--primary); color: white;
   padding: 3.5rem 0 3rem;
@@ -709,7 +679,7 @@ dialog.person-modal::backdrop { background: rgba(0,0,0,0.55); }
 .page-header h1 { font-size: clamp(2rem, 5vw, 3.25rem); color: white; }
 .page-header p { color: rgba(255,255,255,0.6); margin-top: 0.75rem; font-size: 1rem; }
 
-/* ─── Utilities ──────────────────────────────────────────── */
+/* ─── Utilities ─────────────────────────────────────────────────────── */
 .text-center  { text-align: center; }
 .text-accent  { color: var(--accent); }
 .text-warm    { color: var(--accent-warm); }
@@ -721,16 +691,14 @@ dialog.person-modal::backdrop { background: rgba(0,0,0,0.55); }
 .mb-md { margin-bottom: 2rem; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
 
-/* ─── Professional Polish ─────────────────────────────────── */
+/* ─── Professional Polish ─────────────────────────────────────────────────── */
 
-/* ── Custom scrollbar ──────────────────────────────────────── */
 ::-webkit-scrollbar { width: 5px; height: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
 ::selection { background: rgba(201,74,63,0.15); }
 
-/* ── Hero enhancements ─────────────────────────────────────── */
 .hero::after {
   content: ''; position: absolute; inset: 0; z-index: 0;
   background-image: radial-gradient(circle, rgba(255,255,255,0.055) 1px, transparent 1px);
@@ -754,7 +722,6 @@ dialog.person-modal::backdrop { background: rgba(0,0,0,0.55); }
 }
 @media (max-width: 768px) { .hero-scroll { display: none; } }
 
-/* ── About grid (replaces inline styles) ───────────────────── */
 .about-grid {
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 4rem; align-items: center;
@@ -771,7 +738,6 @@ dialog.person-modal::backdrop { background: rgba(0,0,0,0.55); }
   width: 100%; height: 100%; object-fit: cover; object-position: center top;
 }
 
-/* ── Stats row ─────────────────────────────────────────────── */
 .stats-row {
   display: grid; grid-template-columns: repeat(4, 1fr);
   gap: 1px; background: var(--border);
@@ -795,7 +761,6 @@ dialog.person-modal::backdrop { background: rgba(0,0,0,0.55); }
 }
 @media (max-width: 640px) { .stats-row { grid-template-columns: repeat(2, 1fr); } }
 
-/* ── Section card icon polish ──────────────────────────────── */
 .section-card-icon { transition: transform 0.4s var(--ease); }
 .section-card:hover .section-card-icon { transform: scale(1.1) rotate(-4deg); }
 .section-card-icon svg {
@@ -808,7 +773,6 @@ dialog.person-modal::backdrop { background: rgba(0,0,0,0.55); }
 .icon-articles { color: #6d28d9; }
 .icon-games    { background: #e8f0fe; }
 
-/* ── Back to top ───────────────────────────────────────────── */
 .back-to-top {
   position: fixed; bottom: 2rem; right: 2rem; z-index: 900;
   width: 44px; height: 44px; border-radius: 50%;
@@ -826,7 +790,6 @@ dialog.person-modal::backdrop { background: rgba(0,0,0,0.55); }
   stroke-width: 2.5px; stroke-linecap: round; stroke-linejoin: round;
 }
 
-/* ── Page header gradient polish ───────────────────────────── */
 .page-header {
   background: linear-gradient(140deg, var(--primary) 0%, #253d56 60%, #1a3a2e 100%);
   position: relative; overflow: hidden;
@@ -838,11 +801,9 @@ dialog.person-modal::backdrop { background: rgba(0,0,0,0.55); }
 }
 .page-header .container { position: relative; z-index: 1; }
 
-/* ── Timeline hover ────────────────────────────────────────── */
 .timeline-title { transition: color var(--t); }
 .timeline-item:hover .timeline-title { color: var(--accent); }
 
-/* ── CTA section ───────────────────────────────────────────── */
 .cta-section {
   background: linear-gradient(140deg, var(--primary) 0%, #253d56 60%, #1a3a2e 100%);
   padding: 5.5rem 0; text-align: center; position: relative; overflow: hidden;
@@ -857,7 +818,6 @@ dialog.person-modal::backdrop { background: rgba(0,0,0,0.55); }
 .cta-section h2 { color: white; font-size: clamp(1.75rem, 3.5vw, 2.5rem); margin-bottom: 1rem; }
 .cta-section p { color: rgba(255,255,255,0.6); max-width: 480px; margin: 0 auto 2.5rem; font-size: 1rem; }
 
-/* ── Footer nav links ──────────────────────────────────────── */
 .footer-nav {
   display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 1rem;
 }
@@ -868,7 +828,6 @@ dialog.person-modal::backdrop { background: rgba(0,0,0,0.55); }
 }
 .footer-nav a:hover { color: rgba(255,255,255,0.9); }
 
-/* ── Reading progress bar ──────────────────────────────────── */
 .reading-progress {
   position: fixed; top: var(--nav-h); left: 0; right: 0; height: 3px;
   background: transparent; z-index: 999; pointer-events: none;
@@ -878,7 +837,7 @@ dialog.person-modal::backdrop { background: rgba(0,0,0,0.55); }
   transition: width 0.1s linear;
 }
 
-/* ─── Creations Corner ───────────────────────────────────── */
+/* ─── Creations Corner ────────────────────────────────────────────────── */
 .game-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -897,9 +856,11 @@ dialog.person-modal::backdrop { background: rgba(0,0,0,0.55); }
   padding: 2.5rem 1.5rem 2rem;
   display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
 }
-.game-header-uno    { background: linear-gradient(135deg, #c94a3f 0%, #7a1a10 100%); }
+.game-header-uno     { background: linear-gradient(135deg, #c94a3f 0%, #7a1a10 100%); }
 .game-header-tambola { background: linear-gradient(135deg, #4a0080 0%, #1a0040 100%); }
-.game-header-bingo  { background: linear-gradient(135deg, #1a5c3a 0%, #0a2d1e 100%); }
+.game-header-bingo   { background: linear-gradient(135deg, #1a5c3a 0%, #0a2d1e 100%); }
+.game-header-shoshit { background: linear-gradient(135deg, #9a3412 0%, #431407 100%); }
+.game-header-sai2sai { background: linear-gradient(135deg, #d97706 0%, #7c2d12 100%); }
 .game-card-icon { font-size: 3rem; line-height: 1; }
 .game-card-title {
   font-family: 'Playfair Display', serif;
