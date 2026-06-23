@@ -7,7 +7,7 @@
 const _srcAttr = document.currentScript?.getAttribute('src')
                || document.querySelector('script[src$="nav.js"]')?.getAttribute('src')
                || './js/nav.js';
-const _depth = (_srcAttr.match(/\.\.\//g) || []).length;
+const _depth = (_srcAttr.match(/\.\.\/\//g) || []).length;
 const ROOT   = _depth === 0 ? './' : '../'.repeat(_depth);
 
 /* ── Social icon SVGs ─────────────────────────────────────── */
@@ -57,6 +57,7 @@ const NAV_HTML = `
       <li><a href="${ROOT}achievements.html">Achievements</a></li>
       <li><a href="${ROOT}family.html">Family</a></li>
       <li><a href="${ROOT}articles/index.html">Articles</a></li>
+      <li><a href="${ROOT}creations.html">Creations</a></li>
     </ul>
   </div>
 </nav>`;
