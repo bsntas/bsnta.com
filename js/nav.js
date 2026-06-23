@@ -10,7 +10,7 @@ const _srcAttr = document.currentScript?.getAttribute('src')
 const _depth = _srcAttr.split('../').length - 1;
 const ROOT   = _depth === 0 ? './' : '../'.repeat(_depth);
 
-/* ── Social icon SVGs ────────────────────────────────────── */
+/* ── Social icon SVGs ─────────────────────────────────────── */
 const ICONS = {
   facebook:  `<svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>`,
   linkedin:  `<svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>`,
@@ -71,8 +71,16 @@ const FOOTER_HTML = `
         <div class="footer-name">Basanta Sharma</div>
         <div class="footer-motto">&ldquo;Love is life, Live in Love&rdquo;</div>
         <p class="footer-bio">Network Software Engineer &middot; Writer &middot; Explorer<br>
-          <em class="text-warm" style="font-size:0.82rem;">PLACEHOLDER: Add a short personal bio here.</em>
+          Building robust network systems by day, crafting Nepali poetry by night.
         </p>
+        <nav class="footer-nav" aria-label="Site navigation">
+          <a href="${ROOT}index.html">Home</a>
+          <a href="${ROOT}gallery.html">Gallery</a>
+          <a href="${ROOT}achievements.html">Achievements</a>
+          <a href="${ROOT}family.html">Family</a>
+          <a href="${ROOT}articles/index.html">Articles</a>
+          <a href="${ROOT}creations.html">Creations</a>
+        </nav>
       </div>
       ${socialLinksHTML('footer-social')}
     </div>
@@ -95,6 +103,23 @@ const FOOTER_HTML = `
   const yr = document.getElementById('fyear');
   if (yr) yr.textContent = '2018–' + new Date().getFullYear();
 
+  /* Back-to-top button */
+  const btt = document.createElement('button');
+  btt.className = 'back-to-top';
+  btt.id = 'backToTop';
+  btt.setAttribute('aria-label', 'Back to top');
+  btt.innerHTML = `<svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>`;
+  document.body.appendChild(btt);
+  btt.addEventListener('click', () => globalThis.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  /* Reading progress bar (post pages only) */
+  if (document.querySelector('.post-wrap')) {
+    const bar = document.createElement('div');
+    bar.className = 'reading-progress';
+    bar.innerHTML = '<div class="reading-progress-bar" id="readingBar"></div>';
+    document.body.appendChild(bar);
+  }
+
   const toggle = document.getElementById('navToggle');
   const links  = document.getElementById('navLinks');
   if (toggle && links) {
@@ -113,15 +138,23 @@ const FOOTER_HTML = `
   globalThis.addEventListener('scroll', () => {
     const nav = document.getElementById('mainNav');
     if (nav) nav.classList.toggle('scrolled', globalThis.scrollY > 20);
+
+    const bttEl = document.getElementById('backToTop');
+    if (bttEl) bttEl.classList.toggle('visible', globalThis.scrollY > 400);
+
+    const readBar = document.getElementById('readingBar');
+    if (readBar) {
+      const doc = document.documentElement;
+      const pct = (doc.scrollTop / (doc.scrollHeight - doc.clientHeight)) * 100;
+      readBar.style.width = Math.min(pct, 100) + '%';
+    }
   }, { passive: true });
 
-  /* Active link: compare resolved absolute hrefs */
-  const cur = globalThis.location.href;
+  /* Active link: exact pathname match (strip trailing index.html first) */
+  const _normPath = p => p.endsWith('/index.html') ? p.slice(0, -'index.html'.length) : p;
+  const _curPath  = _normPath(globalThis.location.pathname);
   document.querySelectorAll('.nav-links a').forEach(a => {
-    const h = a.href;
-    if (h === cur || cur.startsWith(h.replace('index.html', ''))) {
-      a.classList.add('active');
-    }
+    if (_normPath(new URL(a.href).pathname) === _curPath) a.classList.add('active');
   });
 
   /* Scroll-in animations */
