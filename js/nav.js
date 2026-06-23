@@ -7,7 +7,7 @@
 const _srcAttr = document.currentScript?.getAttribute('src')
                || document.querySelector('script[src$="nav.js"]')?.getAttribute('src')
                || './js/nav.js';
-const _depth = (_srcAttr.match(/\.\.\/\/g) || []).length;
+const _depth = _srcAttr.split('../').length - 1;
 const ROOT   = _depth === 0 ? './' : '../'.repeat(_depth);
 
 /* ── Social icon SVGs ────────────────────────────────────── */
