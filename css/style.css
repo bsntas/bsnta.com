@@ -476,7 +476,7 @@ dialog.lightbox::backdrop { background: transparent; }
   position: relative;
 }
 .ftperson--linked::after {
-  content: '\21B7';
+  content: '↷';
   position: absolute; top: 0.4rem; right: 0.45rem;
   font-size: 0.65rem; color: #7c3aed; opacity: 0.75;
   line-height: 1;
