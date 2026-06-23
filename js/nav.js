@@ -70,8 +70,15 @@ const FOOTER_HTML = `
         <div class="footer-name">Basanta Sharma</div>
         <div class="footer-motto">&ldquo;Love is life, Live in Love&rdquo;</div>
         <p class="footer-bio">Network Software Engineer &middot; Writer &middot; Explorer<br>
-          <em class="text-warm" style="font-size:0.82rem;">PLACEHOLDER: Add a short personal bio here.</em>
+          Building robust network systems by day, crafting Nepali poetry by night.
         </p>
+        <nav class="footer-nav" aria-label="Site navigation">
+          <a href="${ROOT}index.html">Home</a>
+          <a href="${ROOT}gallery.html">Gallery</a>
+          <a href="${ROOT}achievements.html">Achievements</a>
+          <a href="${ROOT}family.html">Family</a>
+          <a href="${ROOT}articles/index.html">Articles</a>
+        </nav>
       </div>
       ${socialLinksHTML('footer-social')}
     </div>
@@ -94,6 +101,23 @@ const FOOTER_HTML = `
   const yr = document.getElementById('fyear');
   if (yr) yr.textContent = '2018–' + new Date().getFullYear();
 
+  /* Back-to-top button */
+  const btt = document.createElement('button');
+  btt.className = 'back-to-top';
+  btt.id = 'backToTop';
+  btt.setAttribute('aria-label', 'Back to top');
+  btt.innerHTML = `<svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>`;
+  document.body.appendChild(btt);
+  btt.addEventListener('click', () => globalThis.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  /* Reading progress bar (post pages only) */
+  if (document.querySelector('.post-wrap')) {
+    const bar = document.createElement('div');
+    bar.className = 'reading-progress';
+    bar.innerHTML = '<div class="reading-progress-bar" id="readingBar"></div>';
+    document.body.appendChild(bar);
+  }
+
   const toggle = document.getElementById('navToggle');
   const links  = document.getElementById('navLinks');
   if (toggle && links) {
@@ -112,6 +136,16 @@ const FOOTER_HTML = `
   globalThis.addEventListener('scroll', () => {
     const nav = document.getElementById('mainNav');
     if (nav) nav.classList.toggle('scrolled', globalThis.scrollY > 20);
+
+    const bttEl = document.getElementById('backToTop');
+    if (bttEl) bttEl.classList.toggle('visible', globalThis.scrollY > 400);
+
+    const readBar = document.getElementById('readingBar');
+    if (readBar) {
+      const doc = document.documentElement;
+      const pct = (doc.scrollTop / (doc.scrollHeight - doc.clientHeight)) * 100;
+      readBar.style.width = Math.min(pct, 100) + '%';
+    }
   }, { passive: true });
 
   /* Active link: compare resolved absolute hrefs */
