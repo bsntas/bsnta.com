@@ -106,7 +106,7 @@ main { padding-top: var(--nav-h); }
   .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
   .hero-motto { margin-left: auto; margin-right: auto; }
   .hero-actions { justify-content: center; }
-  .hero-visual { display: none; }
+  .hero-logo-bg { width: min(220px, 65vw); }
 }
 
 /* ─── Hero ──────────────────────────────────────────────────────── */
