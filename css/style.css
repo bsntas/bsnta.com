@@ -767,6 +767,7 @@ dialog.person-modal::backdrop { background: rgba(0,0,0,0.55); }
 .section-card:hover .section-card-icon { transform: scale(1.1) rotate(-4deg); }
 .section-card-icon svg {
   width: 28px; height: 28px;
+  stroke: currentColor;
   stroke-linecap: round; stroke-linejoin: round; fill: none; stroke-width: 1.5;
 }
 .icon-gallery  { color: #b45309; }
