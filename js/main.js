@@ -132,20 +132,29 @@
   const list = document.querySelector('.article-list');
   if (!list) return;
 
+  let activeType = 'all';
+  let activeLang = 'all';
+
+  function applyFilters() {
+    document.querySelectorAll('.article-item').forEach(item => {
+      const typeMatch = activeType === 'all' || item.dataset.type === activeType;
+      const langMatch = activeLang === 'all' || item.dataset.lang === activeLang;
+      item.style.display = (typeMatch && langMatch) ? '' : 'none';
+    });
+    let n = 1;
+    document.querySelectorAll('.article-item:not([style*="none"]) .article-num').forEach(el => {
+      el.textContent = String(n++).padStart(2, '0');
+    });
+  }
+
   document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      const group = btn.dataset.group;
+      document.querySelectorAll(`.filter-btn[data-group="${group}"]`).forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      const type = btn.dataset.filter;
-      document.querySelectorAll('.article-item').forEach(item => {
-        const match = type === 'all' || item.dataset.type === type;
-        item.style.display = match ? '' : 'none';
-      });
-      /* Renumber visible items */
-      let n = 1;
-      document.querySelectorAll('.article-item:not([style*="none"]) .article-num').forEach(el => {
-        el.textContent = String(n++).padStart(2, '0');
-      });
+      if (group === 'type') activeType = btn.dataset.filter;
+      else if (group === 'lang') activeLang = btn.dataset.filter;
+      applyFilters();
     });
   });
 })();

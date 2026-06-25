@@ -232,7 +232,9 @@ main { padding-top: var(--nav-h); }
 .section-card p { font-size: 0.875rem; color: var(--text-muted); line-height: 1.5; }
 
 /* ─── Gallery ───────────────────────────────────────────────────────── */
-.filter-bar { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+.filter-bar { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; }
+.filter-group { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; }
+.filter-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); min-width: 4rem; }
 .filter-btn {
   padding: 0.4rem 1.1rem; border-radius: 100px;
   font-size: 0.83rem; font-weight: 500;
@@ -570,8 +572,10 @@ dialog.person-modal::backdrop { background: rgba(0,0,0,0.55); }
   background: var(--bg-alt); font-size: 0.72rem;
   font-weight: 600; color: var(--text-muted); letter-spacing: 0.04em;
 }
-.article-tag.poem  { background: #ebe8f5; color: #5a4e8a; }
-.article-tag.essay { background: #e8f4e8; color: #2d6a3f; }
+.article-tag.poem    { background: #ebe8f5; color: #5a4e8a; }
+.article-tag.essay   { background: #e8f4e8; color: #2d6a3f; }
+.article-tag.lang-ne { background: #fce7f3; color: #9d174d; }
+.article-tag.lang-en { background: #dbeafe; color: #1e40af; }
 .article-excerpt { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-top: 0.4rem; }
 .article-excerpt.nepali { font-family: 'Noto Sans Devanagari', sans-serif; }
 .article-date { font-size: 0.78rem; color: var(--text-muted); padding-top: 0.5rem; text-align: right; }
@@ -936,8 +940,10 @@ dialog.person-modal::backdrop { background: rgba(0,0,0,0.55); }
   .icon-games    { background: rgba(232,240,254,0.1); color: #60a5fa; }
 
   /* Article tags */
-  .article-tag.poem  { background: rgba(235,232,245,0.15); color: #c4b5fd; }
-  .article-tag.essay { background: rgba(232,244,232,0.15); color: #86efac; }
+  .article-tag.poem    { background: rgba(235,232,245,0.15); color: #c4b5fd; }
+  .article-tag.essay   { background: rgba(232,244,232,0.15); color: #86efac; }
+  .article-tag.lang-ne { background: rgba(252,231,243,0.15); color: #f9a8d4; }
+  .article-tag.lang-en { background: rgba(219,234,254,0.15); color: #93c5fd; }
 
   /* Timeline dot fill */
   .timeline-item::before { background: var(--bg); }
