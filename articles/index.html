@@ -30,9 +30,18 @@
       <div class="container">
 
         <div class="filter-bar">
-          <button class="filter-btn active" data-filter="all">सबै / All</button>
-          <button class="filter-btn" data-filter="poem">कविता / Poems</button>
-          <button class="filter-btn" data-filter="essay">निबन्ध / Essays</button>
+          <div class="filter-group">
+            <span class="filter-label">Type</span>
+            <button class="filter-btn active" data-filter="all" data-group="type">सबै / All</button>
+            <button class="filter-btn" data-filter="poem" data-group="type">कविता / Poems</button>
+            <button class="filter-btn" data-filter="essay" data-group="type">निबन्ध / Essays</button>
+          </div>
+          <div class="filter-group">
+            <span class="filter-label">Language</span>
+            <button class="filter-btn active" data-filter="all" data-group="lang">All</button>
+            <button class="filter-btn" data-filter="ne" data-group="lang">नेपाली</button>
+            <button class="filter-btn" data-filter="en" data-group="lang">English</button>
+          </div>
         </div>
 
         <div class="article-list">
@@ -40,12 +49,13 @@
           <!-- Add new articles above this line, newest first -->
 
           <a href="poems/yatra.html"
-             class="article-item" data-type="poem">
+             class="article-item" data-type="poem" data-lang="ne">
             <span class="article-num">08</span>
             <div>
               <div class="article-title nepali">यात्रा</div>
               <div class="article-meta">
                 <span class="article-tag poem">कविता</span>
+                <span class="article-tag lang-ne">नेपाली</span>
               </div>
               <div class="article-excerpt nepali">
                 तिमी नै मेरो श्वास, तिमी नै मेरो प्राण — तिमीमै समाहित भई अनन्तमा विलुप्त भइदिनु।।
@@ -55,12 +65,13 @@
           </a>
 
           <a href="poems/timro-pahilo-janmadin.html"
-             class="article-item" data-type="poem">
+             class="article-item" data-type="poem" data-lang="ne">
             <span class="article-num">07</span>
             <div>
               <div class="article-title nepali">तिम्रो पहिलो जन्मदिन</div>
               <div class="article-meta">
                 <span class="article-tag poem">कविता</span>
+                <span class="article-tag lang-ne">नेपाली</span>
               </div>
               <div class="article-excerpt nepali">
                 एक वर्ष भयो तिमी आएको यो संसारमा। आज तिम्रो पहिलो जन्मदिन।
@@ -70,12 +81,13 @@
           </a>
 
           <a href="poems/shunya-chaina.html"
-             class="article-item" data-type="poem">
+             class="article-item" data-type="poem" data-lang="ne">
             <span class="article-num">06</span>
             <div>
               <div class="article-title nepali">शून्य छैन यहाँ</div>
               <div class="article-meta">
                 <span class="article-tag poem">कविता</span>
+                <span class="article-tag lang-ne">नेपाली</span>
               </div>
               <div class="article-excerpt nepali">
                 यहाँ रात छ, यहाँ दिन छ — तर शून्य छैन यहाँ। प्रतिक्षा छ त्यो कोमल बिहानीको।
@@ -85,12 +97,13 @@
           </a>
 
           <a href="poems/euta-kavita.html"
-             class="article-item" data-type="poem">
+             class="article-item" data-type="poem" data-lang="ne">
             <span class="article-num">05</span>
             <div>
               <div class="article-title nepali">एउटा कविता लेख्न मन लाग्यो</div>
               <div class="article-meta">
                 <span class="article-tag poem">कविता</span>
+                <span class="article-tag lang-ne">नेपाली</span>
               </div>
               <div class="article-excerpt nepali">
                 बिहान उठेँ, मुख धोएँ, चिया बनाएँ — आज मलाई एउटा कविता लेख्न मन लाग्यो।
@@ -100,12 +113,13 @@
           </a>
 
           <a href="essays/action-and-intention.html"
-             class="article-item" data-type="essay">
+             class="article-item" data-type="essay" data-lang="en">
             <span class="article-num">04</span>
             <div>
               <div class="article-title">Action and Intention</div>
               <div class="article-meta">
-                <span class="article-tag essay">निबन्ध</span>
+                <span class="article-tag essay">Essay</span>
+                <span class="article-tag lang-en">English</span>
               </div>
               <div class="article-excerpt">
                 What is good and what is bad? A foyer talk on how intention shapes every action we undertake.
@@ -115,12 +129,13 @@
           </a>
 
           <a href="poems/premlila.html"
-             class="article-item" data-type="poem">
+             class="article-item" data-type="poem" data-lang="ne">
             <span class="article-num">03</span>
             <div>
               <div class="article-title nepali">प्रेम-लीलाको शतकबाट साक्षात्कारको एक पल</div>
               <div class="article-meta">
                 <span class="article-tag poem">कविता</span>
+                <span class="article-tag lang-ne">नेपाली</span>
               </div>
               <div class="article-excerpt nepali">
                 हृदयको चोखो प्रेम गोड्मेल गरी सङ्गालेर, बटुलेर अनि जोगाएर एउटा आकार दिन पाएँ।
@@ -130,12 +145,13 @@
           </a>
 
           <a href="poems/smritiharu.html"
-             class="article-item" data-type="poem">
+             class="article-item" data-type="poem" data-lang="ne">
             <span class="article-num">02</span>
             <div>
               <div class="article-title nepali">चाड्ले बोकी ल्याएका स्मृतिहरू</div>
               <div class="article-meta">
                 <span class="article-tag poem">कविता</span>
+                <span class="article-tag lang-ne">नेपाली</span>
               </div>
               <div class="article-excerpt nepali">
                 सूर्यको कोमल स्पर्शले विचलित भएर निद्रा वरालिन थाल्यो। आज विजय दशमी।
@@ -145,12 +161,13 @@
           </a>
 
           <a href="poems/tirtha.html"
-             class="article-item" data-type="poem">
+             class="article-item" data-type="poem" data-lang="ne">
             <span class="article-num">01</span>
             <div>
               <div class="article-title nepali">तीर्थ</div>
               <div class="article-meta">
                 <span class="article-tag poem">कविता</span>
+                <span class="article-tag lang-ne">नेपाली</span>
               </div>
               <div class="article-excerpt nepali">
                 तपाईंबाट उम्रिएकाे म, तपाईंको न्यानो काख छोडेर, म तीर्थ खोज्दै कता जाउँ?
