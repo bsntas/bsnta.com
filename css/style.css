@@ -864,6 +864,7 @@ dialog.person-modal::backdrop { background: rgba(0,0,0,0.55); }
 .game-header-bingo  { background: linear-gradient(135deg, #1a5c3a 0%, #0a2d1e 100%); }
 .game-header-shoshit { background: linear-gradient(135deg, #9a3412 0%, #431407 100%); }
 .game-header-sai2sai { background: linear-gradient(135deg, #d97706 0%, #7c2d12 100%); }
+.game-header-ludo    { background: linear-gradient(135deg, #d97706 0%, #78350f 100%); }
 .game-card-icon { font-size: 3rem; line-height: 1; }
 .game-card-title {
   font-family: 'Playfair Display', serif;
