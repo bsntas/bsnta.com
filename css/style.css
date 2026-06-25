@@ -900,6 +900,7 @@ dialog.person-modal::backdrop { background: rgba(0,0,0,0.55); }
 .game-header-uno    { background: linear-gradient(135deg, #c94a3f 0%, #7a1a10 100%); }
 .game-header-tambola { background: linear-gradient(135deg, #4a0080 0%, #1a0040 100%); }
 .game-header-bingo  { background: linear-gradient(135deg, #1a5c3a 0%, #0a2d1e 100%); }
+.game-header-ludo   { background: linear-gradient(135deg, #d97706 0%, #78350f 100%); }
 .game-card-icon { font-size: 3rem; line-height: 1; }
 .game-card-title {
   font-family: 'Playfair Display', serif;
