@@ -54,7 +54,7 @@ const NAV_HTML = `
     <ul class="nav-links" id="navLinks">
       <li><a href="${ROOT}index.html">Home</a></li>
       <li><a href="${ROOT}gallery.html">Gallery</a></li>
-      <li><a href="${ROOT}achievements.html">Achievements</a></li>
+      <li><a href="${ROOT}achievements.html">About Me</a></li>
       <li><a href="${ROOT}family.html">Family</a></li>
       <li><a href="${ROOT}articles/index.html">Reflections</a></li>
       <li><a href="${ROOT}creations.html">Creations</a></li>
@@ -76,7 +76,7 @@ const FOOTER_HTML = `
         <nav class="footer-nav" aria-label="Site navigation">
           <a href="${ROOT}index.html">Home</a>
           <a href="${ROOT}gallery.html">Gallery</a>
-          <a href="${ROOT}achievements.html">Achievements</a>
+          <a href="${ROOT}achievements.html">About Me</a>
           <a href="${ROOT}family.html">Family</a>
           <a href="${ROOT}articles/index.html">Reflections</a>
           <a href="${ROOT}creations.html">Creations</a>
