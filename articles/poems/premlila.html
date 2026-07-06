@@ -22,7 +22,7 @@
 
         <header class="post-header">
           <p class="post-eyebrow">कविता &nbsp;/&nbsp; Poem</p>
-          <h1 class="post-title nepali">प्रेम-लीलाको शतकबाट साक्षात्कारको एक पल</h1>
+          <h1 class="post-title nepali" data-ne="प्रेम-लीलाको शतकबाट साक्षात्कारको एक पल" data-en="One Moment of Communion from a Century of Love's Leela">प्रेम-लीलाको शतकबाट साक्षात्कारको एक पल</h1>
           <div class="post-meta">
             <span>बसन्त शर्मा, बिजनबारी, दार्जीलिङ</span>
             <span class="post-meta-sep">&middot;</span>
@@ -30,9 +30,13 @@
             <span class="post-meta-sep">&middot;</span>
             <span>ओम् स्वर्णिमा, पृ. ६४</span>
           </div>
+          <div class="lang-toggle" role="group" aria-label="Language">
+            <button class="lang-btn" data-lang="ne" aria-pressed="true">नेपाली</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false">English</button>
+          </div>
         </header>
 
-        <div class="post-poem nepali">
+        <div class="post-poem nepali" data-lang-content="ne">
 
           <p>
             हृदयको चोखो प्रेम गोड्मेल गरी सङ्गालेर<br>
@@ -68,6 +72,43 @@
 
         </div>
 
+        <div class="post-poem" data-lang-content="en" hidden>
+
+          <p>
+            Had I tended the heart&rsquo;s unsullied love &mdash; weeding it,<br>
+            gathering it, guarding it &mdash; and given it a form,<br>
+            it is You I would have been creating.<br>
+            Had I switched off the loud voice of the brain<br>
+            and listened for the small footfalls<br>
+            of this heartbeat, this coursing blood,<br>
+            of each breath drawn in and each breath released,<br>
+            it is the melody of Your own song I would have been following.
+          </p>
+
+          <p>
+            In a body You raised,<br>
+            with knowledge You taught,<br>
+            burning as fuel the grain You cooked,<br>
+            shaping a handful of possibilities<br>
+            chosen from options You Yourself had laid out &mdash;<br>
+            had I only forgotten my own &ldquo;immense contribution&rdquo;<br>
+            and lifted my gaze for a single glance,<br>
+            I would have received at least one glimpse &mdash; one darshan &mdash;<br>
+            of You, enthroned in every direction,<br>
+            <em>O Lord of my life!</em>
+          </p>
+
+          <p class="post-poem-coda">
+            From a century of love&rsquo;s leela,<br>
+            one moment of communion:<br>
+            from the ocean of Your love<br>
+            I long to raise a single cupped handful of nectar &mdash;<br>
+            to drink it, to live it,<br>
+            and to dissolve, losing myself entirely.
+          </p>
+
+        </div>
+
         <nav class="post-nav" aria-label="Article navigation">
           <a href="../../articles/index.html">&larr; सबै लेखहरू</a>
           <span></span>
@@ -80,5 +121,6 @@
   <div id="footer-slot"></div>
 
   <script src="../../js/nav.js"></script>
+  <script src="../../js/lang-toggle.js"></script>
 </body>
 </html>

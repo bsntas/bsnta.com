@@ -22,15 +22,19 @@
 
         <header class="post-header">
           <p class="post-eyebrow">कविता &nbsp;/&nbsp; Poem</p>
-          <h1 class="post-title nepali">चाड़ले बोकी ल्याएका स्मृतिहरू</h1>
+          <h1 class="post-title nepali" data-ne="चाड़ले बोकी ल्याएका स्मृतिहरू" data-en="Memories the Festival Carries Home">चाड़ले बोकी ल्याएका स्मृतिहरू</h1>
           <div class="post-meta">
             <span>बसन्त शर्मा</span>
             <span class="post-meta-sep">&middot;</span>
             <span class="nepali">उन्मेशित</span>
           </div>
+          <div class="lang-toggle" role="group" aria-label="Language">
+            <button class="lang-btn" data-lang="ne" aria-pressed="true">नेपाली</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false">English</button>
+          </div>
         </header>
 
-        <div class="post-poem nepali">
+        <div class="post-poem nepali" data-lang-content="ne">
 
           <p>
             सूर्यको कोमल स्पर्शले विचलित भएर<br>
@@ -103,6 +107,72 @@
 
         </div>
 
+        <div class="post-poem" data-lang-content="en" hidden>
+
+          <p>
+            Stirred by the sun&rsquo;s gentle touch,<br>
+            sleep began to drift and scatter.<br>
+            On music&rsquo;s lovely, flowing melody,<br>
+            the heart welled up, overcome.<br>
+            All around, the warmth of brotherhood;<br>
+            from the mind&rsquo;s inner depths, joy came shimmering up.<br>
+            This morning was lovelier, far lovelier, than any other &mdash;<br>
+            and to my astonished mind came the sudden knowledge:<br>
+            <em>today is Vijaya Dashami.</em>
+          </p>
+
+          <p>
+            The mind, set free, took flight into the boundless sky &mdash;<br>
+            higher and higher, farther and farther &mdash;<br>
+            to gather up every joy of the past,<br>
+            to tuck Mother and Father&rsquo;s blessings<br>
+            into the treasure-chest of the heart forever,<br>
+            <em>this mind soars on and on.</em><br>
+            To fetch the garments dyed in love&rsquo;s most beautiful colors,<br>
+            sewn to cover a heart glittering star-bright with excitement,<br>
+            from the place where Mother had put them away with such care &mdash;<br>
+            <em>this mind is flying.</em>
+          </p>
+
+          <p>
+            Quarreling with brothers and sisters,<br>
+            counting the dakshina rupees &mdash;<br>
+            arithmetic freshly learnt, barely keeping up &mdash;<br>
+            to gather those bittersweet moments of memory,<br>
+            <em>this mind is flying.</em>
+          </p>
+
+          <p>
+            Sisters holding the kalash,<br>
+            binding their maiti three times round<br>
+            with the strong cord of affection,<br>
+            placing the bright seven-colored tika on the forehead,<br>
+            garlanding the neck with marigolds,<br>
+            offering the auspicious sip of curd &mdash;<br>
+            to raise those moments, alive, before the eyes,<br>
+            <em>this mind is flying.</em>
+          </p>
+
+          <p>
+            The song of this mind swells with every passing moment &mdash;<br>
+            how much more it will swell, who can say;<br>
+            holding it back is hard, so hard.<br>
+            The spring of Gangotri is bursting forth,<br>
+            and this mind stands ready for the journey &mdash;<br>
+            cleaving through immovable mountains,<br>
+            striking both banks, stumbling, pressing on,<br>
+            carving its own path as it goes,<br>
+            may it flow ever forward.<br>
+            The destination is clear:<br>
+            the vast, deep, tranquil ocean<br>
+            where struggle has no existence,<br>
+            where discontent holds no reign &mdash;<br>
+            and I have complete faith:<br>
+            <em>I will surely arrive there.</em>
+          </p>
+
+        </div>
+
         <nav class="post-nav" aria-label="Article navigation">
           <a href="../../articles/index.html">&larr; सबै लेखहरू</a>
           <span></span>
@@ -115,5 +185,6 @@
   <div id="footer-slot"></div>
 
   <script src="../../js/nav.js"></script>
+  <script src="../../js/lang-toggle.js"></script>
 </body>
 </html>

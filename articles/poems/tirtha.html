@@ -22,15 +22,19 @@
 
         <header class="post-header">
           <p class="post-eyebrow">कविता &nbsp;/&nbsp; Poem</p>
-          <h1 class="post-title nepali">तीर्थ</h1>
+          <h1 class="post-title nepali" data-ne="तीर्थ" data-en="Pilgrimage">तीर्थ</h1>
           <div class="post-meta">
             <span>बसन्त शर्मा</span>
             <span class="post-meta-sep">&middot;</span>
             <span class="nepali">उन्मेशित</span>
           </div>
+          <div class="lang-toggle" role="group" aria-label="Language">
+            <button class="lang-btn" data-lang="ne" aria-pressed="true">नेपाली</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false">English</button>
+          </div>
         </header>
 
-        <div class="post-poem nepali">
+        <div class="post-poem nepali" data-lang-content="ne">
 
           <p>
             तपाईंबाट उम्रिएकाे म<br>
@@ -61,6 +65,38 @@
 
         </div>
 
+        <div class="post-poem" data-lang-content="en" hidden>
+
+          <p>
+            Sprung from you,<br>
+            leaving your warm lap behind &mdash;<br>
+            <em>where would I go, searching for a pilgrimage?</em>
+          </p>
+
+          <p>
+            Every moment of my arrival, of my very existence,<br>
+            heaped a hundred pains upon you,<br>
+            yet your so-tender heart found its delight<br>
+            in one innocent smile of mine &mdash;<br>
+            leaving that heart behind,<br>
+            <em>where would I go, searching for a pilgrimage?</em>
+          </p>
+
+          <p>
+            To point my life toward its goal<br>
+            you gave up the course of your own,<br>
+            having long since made me the destination of your life &mdash;<br>
+            forgetting a sacrifice beyond all measure,<br>
+            <em>where would I go, searching for a pilgrimage?</em>
+          </p>
+
+          <p class="post-poem-coda">
+            You are my mother, made of tenderness itself.<br>
+            You are my pilgrimage.
+          </p>
+
+        </div>
+
         <nav class="post-nav" aria-label="Article navigation">
           <a href="../../articles/index.html">&larr; सबै लेखहरू</a>
           <span></span>
@@ -73,5 +109,6 @@
   <div id="footer-slot"></div>
 
   <script src="../../js/nav.js"></script>
+  <script src="../../js/lang-toggle.js"></script>
 </body>
 </html>

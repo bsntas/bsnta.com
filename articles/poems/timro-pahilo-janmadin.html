@@ -22,15 +22,19 @@
 
         <header class="post-header">
           <p class="post-eyebrow">कविता &nbsp;/&nbsp; Poem</p>
-          <h1 class="post-title nepali">तिम्रो पहिलो जन्मदिन</h1>
+          <h1 class="post-title nepali" data-ne="तिम्रो पहिलो जन्मदिन" data-en="Your First Birthday">तिम्रो पहिलो जन्मदिन</h1>
           <div class="post-meta">
             <span>बसन्त शर्मा</span>
             <span class="post-meta-sep">&middot;</span>
             <span class="nepali">उन्मेशित</span>
           </div>
+          <div class="lang-toggle" role="group" aria-label="Language">
+            <button class="lang-btn" data-lang="ne" aria-pressed="true">नेपाली</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false">English</button>
+          </div>
         </header>
 
-        <div class="post-poem nepali">
+        <div class="post-poem nepali" data-lang-content="ne">
 
           <p>
             एउटा हिउँदो एउटा वर्षा<br>
@@ -72,6 +76,47 @@
 
         </div>
 
+        <div class="post-poem" data-lang-content="en" hidden>
+
+          <p>
+            One winter, one monsoon,<br>
+            one spring, and one season of frost &mdash;<br>
+            a love that fits inside one tiny heart,<br>
+            a cry in that piercing little voice<br>
+            that no one but Mother and Father can decode,<br>
+            the beaming faces of Grandpa and Grandma,<br>
+            Hajuri and Sani&rsquo;s darling boy,<br>
+            the affection of Bada and Badi, Kaka and Kaki,<br>
+            of Mamas and Phupus,<br>
+            and Alexa&rsquo;s soft, unhurried music.
+          </p>
+
+          <p>
+            Shall I tell you the truth?<br>
+            With the fresh wonder of your baby play,<br>
+            innocent yourself, you have already<br>
+            melted everyone else completely.<br>
+            But &mdash;<br>
+            the show, my little one, has only just begun.<br>
+            Like the fevers the turning seasons bring,<br>
+            carrying a wave of joy that spreads farther still,<br>
+            you must carry this world forward;<br>
+            you have so much more living to do.
+          </p>
+
+          <p class="post-poem-coda">
+            You, in your innocent sleep,<br>
+            go on waking us all.<br>
+            Today I set down these few words<br>
+            so that someday, when your mind has grown to understand them,<br>
+            you will break into a quiet smile.<br>
+            This day that completes one full year &mdash;<br>
+            a year of countless leelas that passed like a single instant &mdash;<br>
+            today is your first birthday.
+          </p>
+
+        </div>
+
         <nav class="post-nav" aria-label="Article navigation">
           <a href="../../articles/index.html">&larr; सबै लेखहरू</a>
           <span></span>
@@ -84,5 +129,6 @@
   <div id="footer-slot"></div>
 
   <script src="../../js/nav.js"></script>
+  <script src="../../js/lang-toggle.js"></script>
 </body>
 </html>

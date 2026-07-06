@@ -22,7 +22,7 @@
 
         <header class="post-header">
           <p class="post-eyebrow">कविता &nbsp;/&nbsp; Poem</p>
-          <h1 class="post-title nepali">यात्रा</h1>
+          <h1 class="post-title nepali" data-ne="यात्रा" data-en="Journey">यात्रा</h1>
           <div class="post-meta">
             <span>बसन्त शर्मा</span>
             <span class="post-meta-sep">&middot;</span>
@@ -30,9 +30,13 @@
             <span class="post-meta-sep">&middot;</span>
             <span>१३ जनवरी २०२५</span>
           </div>
+          <div class="lang-toggle" role="group" aria-label="Language">
+            <button class="lang-btn" data-lang="ne" aria-pressed="true">नेपाली</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false">English</button>
+          </div>
         </header>
 
-        <div class="post-poem nepali">
+        <div class="post-poem nepali" data-lang-content="ne">
 
           <p>
             सजाउन सकिन तिमीलाई<br>
@@ -79,6 +83,50 @@
 
         </div>
 
+        <div class="post-poem" data-lang-content="en" hidden>
+
+          <p>
+            I could not adorn you<br>
+            in the pupil of my eye;<br>
+            I could not gather you<br>
+            into the inner chamber of my heart;<br>
+            nor could I hide myself<br>
+            in the cool shade of your love.
+          </p>
+
+          <p>
+            How do I declare, in so many words,<br>
+            that you are &ldquo;special&rdquo; to me,<br>
+            when reality here<br>
+            has already become something else entirely:<br>
+            your separate existence has dissolved from my life,<br>
+            and you have merged wholly into me.
+          </p>
+
+          <p>
+            Now all that is left for me is to live &mdash;<br>
+            so be the one who unfolds life&rsquo;s meaning for me,<br>
+            be my eyes, able to read<br>
+            the dark footpath ahead,<br>
+            be the endless fuel<br>
+            that keeps this heart beating,<br>
+            and in life&rsquo;s scorching noon,<br>
+            dance around me like a cool wind.
+          </p>
+
+          <p class="post-poem-coda">
+            And now, when I die &mdash; die with me;<br>
+            on life&rsquo;s final page<br>
+            let a single existence be printed.<br>
+            Should anyone ask who we are,<br>
+            lift the veil from our soul,<br>
+            show them the depth of the void,<br>
+            let them hear the scream of utter stillness,<br>
+            and vanish with me into the infinite.
+          </p>
+
+        </div>
+
         <nav class="post-nav" aria-label="Article navigation">
           <a href="../../articles/index.html">&larr; सबै लेखहरू</a>
           <span></span>
@@ -91,5 +139,6 @@
   <div id="footer-slot"></div>
 
   <script src="../../js/nav.js"></script>
+  <script src="../../js/lang-toggle.js"></script>
 </body>
 </html>
