@@ -576,8 +576,9 @@ dialog.person-modal::backdrop { background: rgba(0,0,0,0.55); }
 }
 .article-tag.poem    { background: #ebe8f5; color: #5a4e8a; }
 .article-tag.essay   { background: #e8f4e8; color: #2d6a3f; }
-.article-tag.lang-ne { background: #fce7f3; color: #9d174d; }
-.article-tag.lang-en { background: #dbeafe; color: #1e40af; }
+.article-tag.lang-ne    { background: #fce7f3; color: #9d174d; }
+.article-tag.lang-en    { background: #dbeafe; color: #1e40af; }
+.article-tag.translation { background: #fef3c7; color: #92400e; }
 .article-excerpt { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-top: 0.4rem; }
 .article-excerpt.nepali { font-family: 'Noto Sans Devanagari', sans-serif; }
 .article-date { font-size: 0.78rem; color: var(--text-muted); padding-top: 0.5rem; text-align: right; }
