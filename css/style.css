@@ -554,8 +554,10 @@ dialog.person-modal::backdrop { background: rgba(0,0,0,0.55); }
   padding: 1.5rem 0; border-bottom: 1px solid var(--border);
   text-decoration: none; color: inherit; transition: background var(--t);
 }
-.article-item:hover .article-title { color: var(--accent); }
-.article-num { font-size: 0.78rem; color: var(--text-muted); padding-top: 0.4rem; font-variant-numeric: tabular-nums; }
+.article-item:hover .article-title   { color: var(--accent); }
+.article-item:hover .article-num     { color: var(--accent); }
+.article-item:hover .article-excerpt { color: var(--text); }
+.article-num { font-size: 0.78rem; color: var(--text-muted); padding-top: 0.4rem; font-variant-numeric: tabular-nums; transition: color var(--t); }
 .article-title {
   font-family: 'Playfair Display', serif;
   font-size: 1.15rem; font-weight: 600; color: var(--primary);
