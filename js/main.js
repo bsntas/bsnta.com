@@ -138,7 +138,7 @@
   function applyFilters() {
     document.querySelectorAll('.article-item').forEach(item => {
       const typeMatch = activeType === 'all' || item.dataset.type === activeType;
-      const langMatch = activeLang === 'all' || item.dataset.lang.split(' ').includes(activeLang);
+      const langMatch = activeLang === 'all' || item.dataset.lang === activeLang;
       item.style.display = (typeMatch && langMatch) ? '' : 'none';
     });
     let n = 1;
