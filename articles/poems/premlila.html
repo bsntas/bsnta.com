@@ -22,7 +22,7 @@
 
         <header class="post-header">
           <p class="post-eyebrow">कविता &nbsp;/&nbsp; Poem</p>
-          <h1 class="post-title nepali">प्रेम-लीलाको शतकबाट साक्षात्कारको एक पल</h1>
+          <h1 class="post-title nepali" data-ne="प्रेम-लीलाको शतकबाट साक्षात्कारको एक पल" data-en="One Moment of Revelation from the Century of Love's Play">प्रेम-लीलाको शतकबाट साक्षात्कारको एक पल</h1>
           <div class="post-meta">
             <span>बसन्त शर्मा, बिजनबारी, दार्जीलिङ</span>
             <span class="post-meta-sep">&middot;</span>
@@ -30,9 +30,13 @@
             <span class="post-meta-sep">&middot;</span>
             <span>ओम् स्वर्णिमा, पृ. ६४</span>
           </div>
+          <div class="lang-toggle" role="group" aria-label="Language">
+            <button class="lang-btn" data-lang="ne" aria-pressed="true">नेपाली</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false">English</button>
+          </div>
         </header>
 
-        <div class="post-poem nepali">
+        <div class="post-poem nepali" data-lang-content="ne">
 
           <p>
             हृदयको चोखो प्रेम गोड्मेल गरी सङ्गालेर<br>
@@ -68,6 +72,42 @@
 
         </div>
 
+        <div class="post-poem" data-lang-content="en" hidden>
+
+          <p>
+            Gathering, collecting, and nurturing the pure love of the heart —<br>
+            I was granted the chance to give it a form.<br>
+            I was your very creation.<br>
+            Silencing the loud voice of the mind,<br>
+            I could hear the beat of this heart, this circulation of blood,<br>
+            the small rustle of each breath drawn and released —<br>
+            I was tracing the melody of your song.
+          </p>
+
+          <p>
+            In this body you fashioned,<br>
+            with the knowledge you taught,<br>
+            burning the food you ripened —<br>
+            from the possibilities you laid before me,<br>
+            having shaped two or three prospects chosen —<br>
+            had I forgotten my own presumed great contribution<br>
+            and raised my eyes just once,<br>
+            I would have caught a glimpse of you<br>
+            enthroned everywhere.<br>
+            <em>O lord of my life!</em>
+          </p>
+
+          <p class="post-poem-coda">
+            From the century of love&rsquo;s play —<br>
+            one moment of revelation.<br>
+            From the ocean of your love,<br>
+            lifting one cupped handful of nectar,<br>
+            I wish to drink, I wish to live —<br>
+            and then to dissolve, losing myself entirely.
+          </p>
+
+        </div>
+
         <nav class="post-nav" aria-label="Article navigation">
           <a href="../../articles/index.html">&larr; सबै लेखहरू</a>
           <span></span>
@@ -80,5 +120,6 @@
   <div id="footer-slot"></div>
 
   <script src="../../js/nav.js"></script>
+  <script src="../../js/lang-toggle.js"></script>
 </body>
 </html>

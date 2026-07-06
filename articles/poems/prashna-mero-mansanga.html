@@ -22,15 +22,19 @@
 
         <header class="post-header">
           <p class="post-eyebrow">कविता &nbsp;/&nbsp; Poem</p>
-          <h1 class="post-title nepali">प्रश्न मेरो मनसँग</h1>
+          <h1 class="post-title nepali" data-ne="प्रश्न मेरो मनसँग" data-en="A Question to My Mind">प्रश्न मेरो मनसँग</h1>
           <div class="post-meta">
             <span>बसन्त शर्मा</span>
             <span class="post-meta-sep">&middot;</span>
             <span class="nepali">उन्मेशित</span>
           </div>
+          <div class="lang-toggle" role="group" aria-label="Language">
+            <button class="lang-btn" data-lang="ne" aria-pressed="true">नेपाली</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false">English</button>
+          </div>
         </header>
 
-        <div class="post-poem nepali">
+        <div class="post-poem nepali" data-lang-content="ne">
 
           <p>
             प्रश्न मेरो मनसँग &mdash;<br>
@@ -65,6 +69,41 @@
 
         </div>
 
+        <div class="post-poem" data-lang-content="en" hidden>
+
+          <p>
+            A question to my mind &mdash;<br>
+            what is it you truly want?<br>
+            Happiness? Peace? Joy?<br>
+            Perhaps none of these, for &mdash;<br>
+            every morning when I wake,<br>
+            responsibilities flash before my eyes,<br>
+            an innocent smile gives me energy,<br>
+            I cloak my body in the garb of profession.<br>
+            In all this, there is no search for peace,<br>
+            no hope of joy —<br>
+            only, at the end of a long evening:<br>
+            a weariness of reaching for the horizon,<br>
+            dissolved in the sigh of half-fulfillment.<br>
+            Sigh&hellip;
+          </p>
+
+          <p class="post-poem-coda">
+            Then — suddenly — a firm shower of peace<br>
+            falls upon the endless desert of aimlessness,<br>
+            and I wake with a start.<br>
+            The husk of the soul peels away;<br>
+            the burden of the mind lifts —<br>
+            the search for purpose begins,<br>
+            life begins,<br>
+            the mind is stirred by serenity,<br>
+            the form of the divine grows clear,<br>
+            and one firm step moves<br>
+            in the direction of understanding one&rsquo;s birth.
+          </p>
+
+        </div>
+
         <nav class="post-nav" aria-label="Article navigation">
           <a href="../../articles/index.html">&larr; सबै लेखहरू</a>
           <span></span>
@@ -77,5 +116,6 @@
   <div id="footer-slot"></div>
 
   <script src="../../js/nav.js"></script>
+  <script src="../../js/lang-toggle.js"></script>
 </body>
 </html>

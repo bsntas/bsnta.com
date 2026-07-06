@@ -22,15 +22,19 @@
 
         <header class="post-header">
           <p class="post-eyebrow">कविता &nbsp;/&nbsp; Poem</p>
-          <h1 class="post-title nepali">शून्य छैन यहाँ</h1>
+          <h1 class="post-title nepali" data-ne="शून्य छैन यहाँ" data-en="There Is No Void Here">शून्य छैन यहाँ</h1>
           <div class="post-meta">
             <span>बसन्त शर्मा</span>
             <span class="post-meta-sep">&middot;</span>
             <span class="nepali">उन्मेशित</span>
           </div>
+          <div class="lang-toggle" role="group" aria-label="Language">
+            <button class="lang-btn" data-lang="ne" aria-pressed="true">नेपाली</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false">English</button>
+          </div>
         </header>
 
-        <div class="post-poem nepali">
+        <div class="post-poem nepali" data-lang-content="ne">
 
           <p>
             सृष्टि शून्यबाट भएको थियो<br>
@@ -66,6 +70,42 @@
 
         </div>
 
+        <div class="post-poem" data-lang-content="en" hidden>
+
+          <p>
+            Creation came from void —<br>
+            and so here<br>
+            there is light, and darkness too,<br>
+            there is earth, and sky beside it,<br>
+            there is matter, and the immaterial too.<br>
+            The taste of this truth —<br>
+            ah, how sweet.
+          </p>
+
+          <p>
+            But&hellip; it flashed to mind suddenly —<br>
+            sweet it is here, yet there is bitterness too,<br>
+            a bitterness that stings my very soul.<br>
+            Another truth travels alongside this truth &mdash;<br>
+            to keep creation in motion, perhaps.<br>
+            O fate —<br>
+            it seems one cannot have light and darkness at the same time.
+          </p>
+
+          <p>
+            Right now I am submerged in darkness —<br>
+            I see no light; it is pitch black.<br>
+            There is duty, but no right;<br>
+            it is salty, and I have forgotten the sweet.<br>
+            Yet the morning will surely come.
+          </p>
+
+          <p class="post-poem-coda">
+            I wait for that gentle morning.
+          </p>
+
+        </div>
+
         <nav class="post-nav" aria-label="Article navigation">
           <a href="../../articles/index.html">&larr; सबै लेखहरू</a>
           <span></span>
@@ -78,5 +118,6 @@
   <div id="footer-slot"></div>
 
   <script src="../../js/nav.js"></script>
+  <script src="../../js/lang-toggle.js"></script>
 </body>
 </html>

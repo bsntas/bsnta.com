@@ -22,15 +22,19 @@
 
         <header class="post-header">
           <p class="post-eyebrow">कविता &nbsp;/&nbsp; Poem</p>
-          <h1 class="post-title nepali">एउटा कविता लेख्न मन लाग्यो</h1>
+          <h1 class="post-title nepali" data-ne="एउटा कविता लेख्न मन लाग्यो" data-en="I Felt Like Writing a Poem">एउटा कविता लेख्न मन लाग्यो</h1>
           <div class="post-meta">
             <span>बसन्त शर्मा</span>
             <span class="post-meta-sep">&middot;</span>
             <span class="nepali">उन्मेशित</span>
           </div>
+          <div class="lang-toggle" role="group" aria-label="Language">
+            <button class="lang-btn" data-lang="ne" aria-pressed="true">नेपाली</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false">English</button>
+          </div>
         </header>
 
-        <div class="post-poem nepali">
+        <div class="post-poem nepali" data-lang-content="ne">
 
           <p>
             कति मीठो चराहरूको चिप चिप<br>
@@ -81,6 +85,57 @@
 
         </div>
 
+        <div class="post-poem" data-lang-content="en" hidden>
+
+          <p>
+            How sweet the chatter of birds,<br>
+            the slow drift of a cool breeze —<br>
+            the sun has not yet risen,<br>
+            yet the earth has already cast off her veil.<br>
+            Ah, in just such a delightful morning,<br>
+            I flung my restless body out of bed<br>
+            and stretched myself, gazing out at the open sky.<br>
+            The milk of our Maali cow, thick and fresh from last evening&rsquo;s milking,<br>
+            boiled to warmth —<br>
+            and that handmade colour brought from the arch across the way;<br>
+            a brisk wash to shake off the sleep,<br>
+            cold water splashed hard across the face —<br>
+            I startled fully awake.<br>
+            Oh — already ten o&rsquo;clock, just like that.
+          </p>
+
+          <p>
+            Outside, the fierce heat of the sun<br>
+            has dried even the earth&rsquo;s tears.<br>
+            The din of what flies and what rolls<br>
+            has all but silenced speech itself.<br>
+            When this lazy body grows sleepy<br>
+            the village rooster almost crows;<br>
+            somehow, in a handful of hours,<br>
+            one has just barely managed to sleep.<br>
+            Sipping tea, pressing milestones into the sweat,<br>
+            the body wanders searching for cool.
+          </p>
+
+          <p>
+            In this crowd of people<br>
+            I must now drift far —<br>
+            purchased smiles and borrowed affection<br>
+            gathered close, the day must be spent.<br>
+            Amid millions, alone,<br>
+            I must yet learn to find my joy.
+          </p>
+
+          <p class="post-poem-coda">
+            But today —<br>
+            pushing that life a little further aside,<br>
+            standing myself upright before myself —<br>
+            I felt like giving voice to the heart&rsquo;s complaint.<br>
+            Today I felt like writing a poem.
+          </p>
+
+        </div>
+
         <nav class="post-nav" aria-label="Article navigation">
           <a href="../../articles/index.html">&larr; सबै लेखहरू</a>
           <span></span>
@@ -93,5 +148,6 @@
   <div id="footer-slot"></div>
 
   <script src="../../js/nav.js"></script>
+  <script src="../../js/lang-toggle.js"></script>
 </body>
 </html>

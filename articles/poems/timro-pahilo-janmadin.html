@@ -22,15 +22,19 @@
 
         <header class="post-header">
           <p class="post-eyebrow">कविता &nbsp;/&nbsp; Poem</p>
-          <h1 class="post-title nepali">तिम्रो पहिलो जन्मदिन</h1>
+          <h1 class="post-title nepali" data-ne="तिम्रो पहिलो जन्मदिन" data-en="Your First Birthday">तिम्रो पहिलो जन्मदिन</h1>
           <div class="post-meta">
             <span>बसन्त शर्मा</span>
             <span class="post-meta-sep">&middot;</span>
             <span class="nepali">उन्मेशित</span>
           </div>
+          <div class="lang-toggle" role="group" aria-label="Language">
+            <button class="lang-btn" data-lang="ne" aria-pressed="true">नेपाली</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false">English</button>
+          </div>
         </header>
 
-        <div class="post-poem nepali">
+        <div class="post-poem nepali" data-lang-content="ne">
 
           <p>
             एउटा हिउँदो एउटा वर्षा<br>
@@ -72,6 +76,47 @@
 
         </div>
 
+        <div class="post-poem" data-lang-content="en" hidden>
+
+          <p>
+            One winter, one monsoon,<br>
+            one spring and one autumn —<br>
+            love that fits inside a tiny heart;<br>
+            the calls of mother and father<br>
+            which no other voice can muffle;<br>
+            the bright faces of grandfather and grandmother;<br>
+            the darling grandson of Hajuri and Saani;<br>
+            the doting of Bada-Badi, Kaka-Kaki;<br>
+            the affection of maternal uncles and aunts;<br>
+            and Alexa&rsquo;s gentle music.
+          </p>
+
+          <p>
+            Shall I speak plainly?<br>
+            You have given everyone a fresh glimpse of childhood&rsquo;s play —<br>
+            though innocent yourself, you have already<br>
+            drawn everyone completely in.<br>
+            But, my dear — the picture is not yet over.<br>
+            Carrying a wave of enthusiasm<br>
+            that will spread as wide as any seasonal joy,<br>
+            you must move this world forward.<br>
+            You have so much more living to do.
+          </p>
+
+          <p class="post-poem-coda">
+            In your innocent sleep,<br>
+            go on waking everyone.<br>
+            Today I write these few words —<br>
+            one day, when your mind can understand,<br>
+            smile that gentle smile of yours.<br>
+            Having woven the play of many years<br>
+            yet granting only a glimpse of a moment —<br>
+            this day, one full year complete:<br>
+            today is your first birthday.
+          </p>
+
+        </div>
+
         <nav class="post-nav" aria-label="Article navigation">
           <a href="../../articles/index.html">&larr; सबै लेखहरू</a>
           <span></span>
@@ -84,5 +129,6 @@
   <div id="footer-slot"></div>
 
   <script src="../../js/nav.js"></script>
+  <script src="../../js/lang-toggle.js"></script>
 </body>
 </html>

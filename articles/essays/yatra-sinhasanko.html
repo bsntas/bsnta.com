@@ -22,7 +22,7 @@
 
         <header class="post-header">
           <p class="post-eyebrow">निबन्ध &nbsp;/&nbsp; Essay</p>
-          <h1 class="post-title nepali">यात्रा सिंहासनको</h1>
+          <h1 class="post-title nepali" data-ne="यात्रा सिंहासनको" data-en="The Journey to the Throne">यात्रा सिंहासनको</h1>
           <div class="post-meta">
             <span class="nepali">बसन्त शर्मा, बिजनबारी</span>
             <span class="post-meta-sep">&middot;</span>
@@ -30,9 +30,13 @@
             <span class="post-meta-sep">&middot;</span>
             <span class="nepali">२३ नोभेम्बर २०१५</span>
           </div>
+          <div class="lang-toggle" role="group" aria-label="Language">
+            <button class="lang-btn" data-lang="ne" aria-pressed="true">नेपाली</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false">English</button>
+          </div>
         </header>
 
-        <div class="post-poem nepali">
+        <div class="post-poem nepali" data-lang-content="ne">
 
           <p>
             यो कथा हो यात्राको, यस्तो यात्रा जुन गन्तव्यबाट शुरु भएको थियो, गन्तव्यकै बाटो भएर प्रगति हुँदैछ अनि गन्तव्यमा नै समाप्त हुनेछ। यात्रा समाप्त भएको छैन तर शुरु अवश्य भइसकेको छ। म त्यहीँ छु तर दूरी काटिँदैछ अनि यात्रा जारी छ।
@@ -64,6 +68,38 @@
 
         </div>
 
+        <div class="post-body" data-lang-content="en" hidden>
+
+          <p>
+            This is the story of a journey — one that began at its destination, has been progressing along the very path of that destination, and will end at that same destination. The journey is not yet complete, but it has certainly begun. I am there, and yet the distance is being covered; the journey continues.
+          </p>
+
+          <p>
+            I am the traveller. This journey was neither my own choosing, nor the fruit of my own effort. Yet I am the traveller, without question. This is a journey to the throne. This journey, which began from an empty throne, will end only when I witness the Lord of that throne seated upon it in person. The path of the journey is forming itself; my duty is simply to walk it.
+          </p>
+
+          <p>
+            This journey began at the very moment when, for the first time, I saw a photograph of the World Emperor — wearing a crown of hair, seated in joyful repose upon a magnificent throne in the prayer room. I had heard that this Emperor could be seen in person, seated thus, at his capital, Prasanthi Nilayam. The deep possibility carried by that fact planted the desire to witness that sight deep within the innermost sanctum of my heart, right at that moment. But I did not know that an unseen force was already drawing the course of my own life in that very direction.
+          </p>
+
+          <p>
+            It seems the Emperor wished to make my acquaintance, for I found myself enrolled in Bal Vikas. The stories of his divine play that I heard there gradually began to fill my heart. I also began to receive the darshan of the throne prepared for him in his temple — but the vision of him seated upon it himself remained confined to my imagination. Everyone believed that, in his unseen form, he was present there too, but my own eyes yearned to behold that magnificent sight directly. In this way, as the years passed, this longing of mine deepened. His divine play is beyond measure — of this I am now fully convinced. In my own life, too, he was weaving such a play, though I remained unaware. Towards the end of class twelve, an opportunity suddenly appeared before me that could make my dream a reality: a chance to study at the university closest to his heart — the university he himself had established — through which a thousand other opportunities would certainly also open. I wasted no time in stepping forward. Even if I did not gain admission to that university, I had no objection. For in writing the entrance exam, I would at least have the chance to visit Prasanthi once — and my longing would certainly find its answer.
+          </p>
+
+          <p>
+            The time was drawing near. The invitation letter for the entrance examination had already arrived. The mind was greatly agitated with the longing to witness the Emperor seated upon his throne. Then suddenly a storm swept through — one that carried away all my dreams. A cloud gathered whose rain washed away all my wishes; a darkness fell that deprived my eyes of that sight forever. The World Emperor had decided to shed his human form and dissolve into the infinite. With a heavy heart I arrived at the capital. But there, to my misfortune, the journey could not reach its end. Yet it did, without question, make progress. I who had only imagined his presence upon the empty throne now stood, on that day, in a place from where millions had, with their own eyes, seen that magnificent sight for which I had been longing — a sight I myself had been unable to see. Perhaps sensing the grief of my heart, the very throne upon which the Emperor had been seated — now presented before me as testimony to that truth. It seemed to say to me: what did it matter that I had not seen it? The importance and the place it had been accorded were themselves proof enough that at some time the Emperor had indeed been seated upon it. Having subdued the unfulfilled longing of my heart, I consoled myself with the great fortune of having been present in this sacred land — and sat for the university entrance examination.
+          </p>
+
+          <p>
+            I was gradually beginning to make a pitiless killing of my desire — seeing all the lamps of hope extinguished. But the World Emperor had his own plan for me. Slowly, a pole star began to appear in the sky — to guide me towards the destination of my journey. My journey was certainly not yet complete, but it was not within my right to end it prematurely either. For this journey was neither my own choosing, nor the fruit of my own effort. I was merely an instrument. This journey was a duty I had to fulfil in this world.
+          </p>
+
+          <p>
+            And now I understand: the throne that must be prepared for the Emperor is not in some grand palace hall but in the palace of the heart. The throne must be made not of wood but of love and devotion. For the Emperor&rsquo;s kingdom is all of creation; his capital is every heart; and his reign will continue until the end of time. My journey will end on the day I see him — with my inner eye — seated upon the throne of my heart.
+          </p>
+
+        </div>
+
         <nav class="post-nav" aria-label="Article navigation">
           <a href="../../articles/index.html">&larr; सबै लेखहरू</a>
           <span></span>
@@ -76,5 +112,6 @@
   <div id="footer-slot"></div>
 
   <script src="../../js/nav.js"></script>
+  <script src="../../js/lang-toggle.js"></script>
 </body>
 </html>

@@ -22,7 +22,7 @@
 
         <header class="post-header">
           <p class="post-eyebrow">कविता &nbsp;/&nbsp; Poem</p>
-          <h1 class="post-title nepali">यात्रा</h1>
+          <h1 class="post-title nepali" data-ne="यात्रा" data-en="Journey">यात्रा</h1>
           <div class="post-meta">
             <span>बसन्त शर्मा</span>
             <span class="post-meta-sep">&middot;</span>
@@ -30,9 +30,13 @@
             <span class="post-meta-sep">&middot;</span>
             <span>१३ जनवरी २०२५</span>
           </div>
+          <div class="lang-toggle" role="group" aria-label="Language">
+            <button class="lang-btn" data-lang="ne" aria-pressed="true">नेपाली</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false">English</button>
+          </div>
         </header>
 
-        <div class="post-poem nepali">
+        <div class="post-poem nepali" data-lang-content="ne">
 
           <p>
             सजाउन सकिन तिमीलाई<br>
@@ -79,6 +83,53 @@
 
         </div>
 
+        <div class="post-poem" data-lang-content="en" hidden>
+
+          <p>
+            I could not adorn you<br>
+            in the pupil of my eye,<br>
+            I could not gather you<br>
+            into the innermost room of my heart,<br>
+            nor could I hide myself<br>
+            beneath the shade of your love.
+          </p>
+
+          <p>
+            How shall I mark it down and declare<br>
+            that you are &ldquo;special&rdquo; to me —<br>
+            when the reality here<br>
+            has already become something else entirely:<br>
+            your existence in my life has dissolved,<br>
+            and you have already merged into me.
+          </p>
+
+          <p>
+            Now I have only to live —<br>
+            you, reveal to me the meaning of life.
+          </p>
+
+          <p>
+            Become my sight, that can discern<br>
+            the dark and winding path;<br>
+            become the inexhaustible fuel<br>
+            that keeps the heartbeat alive;<br>
+            in the scorching sun of life,<br>
+            dance for me as a cool breeze.
+          </p>
+
+          <p class="post-poem-coda">
+            When I am gone, die with me —<br>
+            on the final pages of life<br>
+            let one existence be imprinted.<br>
+            If anyone asks to know us,<br>
+            lift the veil of our souls,<br>
+            show them the depth of the void,<br>
+            let them hear the silent cry,<br>
+            and vanish into the infinite.
+          </p>
+
+        </div>
+
         <nav class="post-nav" aria-label="Article navigation">
           <a href="../../articles/index.html">&larr; सबै लेखहरू</a>
           <span></span>
@@ -91,5 +142,6 @@
   <div id="footer-slot"></div>
 
   <script src="../../js/nav.js"></script>
+  <script src="../../js/lang-toggle.js"></script>
 </body>
 </html>
