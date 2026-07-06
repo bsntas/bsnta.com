@@ -12,11 +12,10 @@
       el.hidden = el.dataset.langContent !== lang;
     });
 
-    var title = document.querySelector('.post-title[data-en]');
-    if (title) {
-      title.textContent = lang === 'en' ? title.dataset.en : title.dataset.ne;
-      title.classList.toggle('nepali', lang === 'ne');
-    }
+    document.querySelectorAll('[data-ne][data-en]').forEach(function (el) {
+      el.textContent = lang === 'en' ? el.dataset.en : el.dataset.ne;
+      el.classList.toggle('nepali', lang === 'ne');
+    });
 
     try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
   }
