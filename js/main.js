@@ -54,17 +54,32 @@
     el.addEventListener('animationend', () => el.classList.remove('ftperson--flash'), { once: true });
   }
 
+  /* Flash in place without scrolling — used after we've already scrolled to the section */
+  function flashInPlace(el) {
+    el.classList.remove('ftperson--flash');
+    void el.offsetWidth;
+    el.classList.add('ftperson--flash');
+    el.addEventListener('animationend', () => el.classList.remove('ftperson--flash'), { once: true });
+  }
+
   function revealSection(sectionId, targetId) {
     const section = document.getElementById(sectionId);
     const target  = document.getElementById(targetId);
     if (!section || !target) return;
+
+    /* Scroll to section top so its header clears the fixed nav, then flash target */
+    function scrollAndFlash() {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(() => flashInPlace(target), 500);
+    }
+
     if (!section.classList.contains('is-open')) {
       section.classList.add('is-open');
       section.removeAttribute('aria-hidden');
-      /* Wait for expand animation, then scroll + flash */
-      setTimeout(() => flashCard(target), 500);
+      /* Wait for expand animation to start before scrolling */
+      setTimeout(scrollAndFlash, 400);
     } else {
-      flashCard(target);
+      scrollAndFlash();
     }
   }
 
