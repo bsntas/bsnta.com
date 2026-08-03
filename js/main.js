@@ -82,17 +82,21 @@
       const linkedId    = btn.dataset.linkedId;
       const linkedLabel = btn.dataset.linkedLabel;
       const revealsId   = btn.dataset.reveals;
+      const revealsDir  = btn.dataset.revealsDirection;
+      const linkText    = btn.dataset.linkText;
 
       if (linkedId && linkedLabel && linkBox && linkBtn) {
-        /* Sharma→Poudyal: opens hidden section first */
         if (revealsId) {
-          linkBtn.textContent = `Meet Anisha's family — ${linkedLabel} ↓`;
+          /* Card reveals a hidden section (Basanta→Sharma or Anisha→Poudyal) */
+          const arrow  = revealsDir === 'up' ? '↑' : '↓';
+          const prefix = linkText || `Meet ${linkedLabel}`;
+          linkBtn.textContent = `${prefix} — ${linkedLabel} ${arrow}`;
           linkBtn.onclick = () => {
             modal.close();
             revealSection(revealsId, linkedId);
           };
         } else {
-          /* Poudyal→Sharma: section already visible, just scroll */
+          /* Card in the revealed section — navigate back to always-visible tree */
           linkBtn.textContent = `Also in: ${linkedLabel} ↑`;
           linkBtn.onclick = () => {
             modal.close();
@@ -111,6 +115,20 @@
   closeBtn.addEventListener('click', () => modal.close());
   modal.addEventListener('click', e => { if (e.target === modal) modal.close(); });
 
+  /* Collapse button on the Sharma section */
+  const sharmaCloseBtn = document.getElementById('sharmaClose');
+  if (sharmaCloseBtn) {
+    sharmaCloseBtn.addEventListener('click', () => {
+      const section = document.getElementById('sharma-section');
+      if (section) {
+        section.classList.remove('is-open');
+        section.setAttribute('aria-hidden', 'true');
+        const basanta = document.getElementById('basanta-sharma');
+        if (basanta) basanta.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  }
+
   /* Collapse button on the Poudyal section */
   const collapseBtn = document.getElementById('poudyalClose');
   if (collapseBtn) {
@@ -119,7 +137,6 @@
       if (section) {
         section.classList.remove('is-open');
         section.setAttribute('aria-hidden', 'true');
-        /* Scroll back up to Anisha's card in the Sharma tree */
         const anisha = document.getElementById('anisha-sharma');
         if (anisha) anisha.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
