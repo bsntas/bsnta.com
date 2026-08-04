@@ -47,6 +47,13 @@
   if (!modal) return;
 
   function flashCard(el) {
+    if (!el) return;
+    /* If the element is inside a hidden container, scroll to the tree wrap instead */
+    if (el.closest('[hidden]')) {
+      const wrap = document.querySelector('.ftree-wrap');
+      if (wrap) wrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
     el.classList.remove('ftperson--flash');
     void el.offsetWidth;
     el.classList.add('ftperson--flash');
@@ -61,14 +68,40 @@
     el.addEventListener('animationend', () => el.classList.remove('ftperson--flash'), { once: true });
   }
 
+  /* Expand the Sharma parents inline — swaps core couple for parents+siblings tree */
+  function expandSharmaBranch(targetId) {
+    document.getElementById('sharma-branch-header').hidden = false;
+    document.getElementById('sharma-parents-couple').hidden = false;
+    document.getElementById('sharma-siblings-ul').hidden    = false;
+    document.getElementById('core-couple').hidden           = true;
+    document.getElementById('core-children-ul').hidden      = true;
+
+    const target = document.getElementById(targetId);
+    if (target) {
+      setTimeout(() => {
+        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        setTimeout(() => flashInPlace(target), 400);
+      }, 50);
+    }
+  }
+
+  /* Collapse back to core couple */
+  function collapseSharmaBranch() {
+    document.getElementById('sharma-branch-header').hidden = true;
+    document.getElementById('sharma-parents-couple').hidden = true;
+    document.getElementById('sharma-siblings-ul').hidden    = true;
+    document.getElementById('core-couple').hidden           = false;
+    document.getElementById('core-children-ul').hidden      = false;
+
+    const basanta = document.getElementById('basanta-sharma');
+    if (basanta) basanta.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  /* Reveal Poudyal section (separate section below with CSS transition) */
   function revealSection(sectionId, targetId) {
     const section = document.getElementById(sectionId);
     const target  = document.getElementById(targetId);
     if (!section || !target) return;
-
-    /* Hide the dedicated expand button for this section */
-    const expandBtn = document.querySelector(`.ftree-expand-btn[data-reveals="${sectionId}"]`);
-    if (expandBtn) expandBtn.hidden = true;
 
     function scrollAndFlash() {
       section.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -83,13 +116,6 @@
       scrollAndFlash();
     }
   }
-
-  /* Dedicated expand buttons flanking the core couple */
-  document.querySelectorAll('.ftree-expand-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      revealSection(btn.dataset.reveals, btn.dataset.target);
-    });
-  });
 
   document.querySelectorAll('.ftperson').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -109,20 +135,19 @@
       const linkText    = btn.dataset.linkText;
 
       if (linkedId && linkedLabel && linkBox && linkBtn) {
-        if (revealsId) {
+        if (revealsId === 'sharma-inline') {
           const arrow  = revealsDir === 'up' ? '↑' : '↓';
           const prefix = linkText || `Meet ${linkedLabel}`;
           linkBtn.textContent = `${prefix} — ${linkedLabel} ${arrow}`;
-          linkBtn.onclick = () => {
-            modal.close();
-            revealSection(revealsId, linkedId);
-          };
+          linkBtn.onclick = () => { modal.close(); expandSharmaBranch(linkedId); };
+        } else if (revealsId) {
+          const arrow  = revealsDir === 'up' ? '↑' : '↓';
+          const prefix = linkText || `Meet ${linkedLabel}`;
+          linkBtn.textContent = `${prefix} — ${linkedLabel} ${arrow}`;
+          linkBtn.onclick = () => { modal.close(); revealSection(revealsId, linkedId); };
         } else {
           linkBtn.textContent = `Also in: ${linkedLabel} ↑`;
-          linkBtn.onclick = () => {
-            modal.close();
-            flashCard(document.getElementById(linkedId));
-          };
+          linkBtn.onclick = () => { modal.close(); flashCard(document.getElementById(linkedId)); };
         }
         linkBox.hidden = false;
       } else if (linkBox) {
@@ -136,20 +161,10 @@
   closeBtn.addEventListener('click', () => modal.close());
   modal.addEventListener('click', e => { if (e.target === modal) modal.close(); });
 
-  /* Collapse button on the Sharma section */
+  /* Collapse button on the inline Sharma branch */
   const sharmaCloseBtn = document.getElementById('sharmaClose');
   if (sharmaCloseBtn) {
-    sharmaCloseBtn.addEventListener('click', () => {
-      const section = document.getElementById('sharma-section');
-      if (section) {
-        section.classList.remove('is-open');
-        section.setAttribute('aria-hidden', 'true');
-        const basanta = document.getElementById('basanta-sharma');
-        if (basanta) basanta.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        const expandBtn = document.querySelector('.ftree-expand-btn[data-reveals="sharma-section"]');
-        if (expandBtn) expandBtn.hidden = false;
-      }
-    });
+    sharmaCloseBtn.addEventListener('click', collapseSharmaBranch);
   }
 
   /* Collapse button on the Poudyal section */
@@ -160,10 +175,13 @@
       if (section) {
         section.classList.remove('is-open');
         section.setAttribute('aria-hidden', 'true');
+        /* Scroll to Anisha in the core couple; if core is hidden, scroll to the tree wrap */
         const anisha = document.getElementById('anisha-sharma');
-        if (anisha) anisha.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        const expandBtn = document.querySelector('.ftree-expand-btn[data-reveals="poudyal-section"]');
-        if (expandBtn) expandBtn.hidden = false;
+        if (anisha && !anisha.closest('[hidden]')) {
+          anisha.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          document.querySelector('.ftree-wrap').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
       }
     });
   }

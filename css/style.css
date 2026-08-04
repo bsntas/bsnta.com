@@ -25,6 +25,7 @@
 
 /* ─── Reset ───────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+[hidden] { display: none !important; }
 html { color-scheme: light dark; font-size: 16px; scroll-behavior: smooth; }
 body {
   font-family: 'Inter', system-ui, sans-serif;
@@ -455,17 +456,6 @@ dialog.lightbox::backdrop { background: transparent; }
   transition: max-height 0.65s ease, opacity 0.35s ease 0.15s;
 }
 
-.ftree-reveal-section--above .ftree-reveal-header {
-  border-top: none;
-  margin-top: 0;
-  padding: 1.75rem 0 2.5rem;
-}
-.ftree-reveal-section--above.is-open {
-  border-bottom: 1.5px solid var(--border);
-  padding-bottom: 0.25rem;
-  margin-bottom: 2.5rem;
-}
-
 .ftree-reveal-header {
   display: flex; flex-direction: column; align-items: center;
   gap: 0.25rem;
@@ -487,44 +477,12 @@ dialog.lightbox::backdrop { background: transparent; }
 }
 .ftree-reveal-close:hover { border-color: var(--accent); color: var(--accent); }
 
-/* ── Dedicated expand/collapse buttons flanking the core couple ── */
-.ftree-expand-btn {
-  appearance: none; font: inherit; font-size: 0.8rem; font-weight: 600;
-  background: none; border: 1.5px dashed var(--border);
-  border-radius: var(--radius); padding: 0.4rem 1.1rem;
-  cursor: pointer; color: var(--text-muted);
-  transition: border-color var(--t), color var(--t);
-  position: relative; flex-shrink: 0; align-self: center;
+/* ── Inline branch header (shown above parents couple when Sharma is expanded) ── */
+.ft-branch-header {
+  display: flex; align-items: center; justify-content: center;
+  gap: 0.75rem; padding: 0.25rem 0 1.5rem; width: 100%;
 }
-.ftree-expand-btn:hover { border-color: var(--accent); color: var(--accent); }
-
-/* Dashed connector going DOWN from button to the couple below */
-.ftree-expand-btn--above {
-  margin-bottom: 1.75rem;
-}
-.ftree-expand-btn--above::after {
-  content: '';
-  position: absolute; left: 50%; top: 100%;
-  transform: translateX(-50%);
-  width: 2px; height: 1.75rem;
-  background: repeating-linear-gradient(to bottom,
-    var(--border) 0, var(--border) 4px,
-    transparent 4px, transparent 8px);
-}
-
-/* Dashed connector going UP from button to the children list above */
-.ftree-expand-btn--below {
-  margin-top: 1.75rem;
-}
-.ftree-expand-btn--below::before {
-  content: '';
-  position: absolute; left: 50%; bottom: 100%;
-  transform: translateX(-50%);
-  width: 2px; height: 1.75rem;
-  background: repeating-linear-gradient(to bottom,
-    var(--border) 0, var(--border) 4px,
-    transparent 4px, transparent 8px);
-}
+.ft-branch-header .eyebrow { margin: 0; }
 
 .ftperson--linked {
   border-color: #7c3aed;
