@@ -47,6 +47,13 @@
   if (!modal) return;
 
   function flashCard(el) {
+    if (!el) return;
+    /* If the element is inside a hidden container, scroll to the tree wrap instead */
+    if (el.closest('[hidden]')) {
+      const wrap = document.querySelector('.ftree-wrap');
+      if (wrap) wrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
     el.classList.remove('ftperson--flash');
     void el.offsetWidth;
     el.classList.add('ftperson--flash');
@@ -54,17 +61,59 @@
     el.addEventListener('animationend', () => el.classList.remove('ftperson--flash'), { once: true });
   }
 
+  function flashInPlace(el) {
+    el.classList.remove('ftperson--flash');
+    void el.offsetWidth;
+    el.classList.add('ftperson--flash');
+    el.addEventListener('animationend', () => el.classList.remove('ftperson--flash'), { once: true });
+  }
+
+  /* Expand the Sharma parents inline — swaps core couple for parents+siblings tree */
+  function expandSharmaBranch(targetId) {
+    document.getElementById('sharma-branch-header').hidden = false;
+    document.getElementById('sharma-parents-couple').hidden = false;
+    document.getElementById('sharma-siblings-ul').hidden    = false;
+    document.getElementById('core-couple').hidden           = true;
+    document.getElementById('core-children-ul').hidden      = true;
+
+    const target = document.getElementById(targetId);
+    if (target) {
+      setTimeout(() => {
+        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        setTimeout(() => flashInPlace(target), 400);
+      }, 50);
+    }
+  }
+
+  /* Collapse back to core couple */
+  function collapseSharmaBranch() {
+    document.getElementById('sharma-branch-header').hidden = true;
+    document.getElementById('sharma-parents-couple').hidden = true;
+    document.getElementById('sharma-siblings-ul').hidden    = true;
+    document.getElementById('core-couple').hidden           = false;
+    document.getElementById('core-children-ul').hidden      = false;
+
+    const basanta = document.getElementById('basanta-sharma');
+    if (basanta) basanta.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  /* Reveal Poudyal section (separate section below with CSS transition) */
   function revealSection(sectionId, targetId) {
     const section = document.getElementById(sectionId);
     const target  = document.getElementById(targetId);
     if (!section || !target) return;
+
+    function scrollAndFlash() {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(() => flashInPlace(target), 500);
+    }
+
     if (!section.classList.contains('is-open')) {
       section.classList.add('is-open');
       section.removeAttribute('aria-hidden');
-      /* Wait for expand animation, then scroll + flash */
-      setTimeout(() => flashCard(target), 500);
+      setTimeout(scrollAndFlash, 400);
     } else {
-      flashCard(target);
+      scrollAndFlash();
     }
   }
 
@@ -82,22 +131,23 @@
       const linkedId    = btn.dataset.linkedId;
       const linkedLabel = btn.dataset.linkedLabel;
       const revealsId   = btn.dataset.reveals;
+      const revealsDir  = btn.dataset.revealsDirection;
+      const linkText    = btn.dataset.linkText;
 
       if (linkedId && linkedLabel && linkBox && linkBtn) {
-        /* Sharma→Poudyal: opens hidden section first */
-        if (revealsId) {
-          linkBtn.textContent = `Meet Anisha's family — ${linkedLabel} ↓`;
-          linkBtn.onclick = () => {
-            modal.close();
-            revealSection(revealsId, linkedId);
-          };
+        if (revealsId === 'sharma-inline') {
+          const arrow  = revealsDir === 'up' ? '↑' : '↓';
+          const prefix = linkText || `Meet ${linkedLabel}`;
+          linkBtn.textContent = `${prefix} — ${linkedLabel} ${arrow}`;
+          linkBtn.onclick = () => { modal.close(); expandSharmaBranch(linkedId); };
+        } else if (revealsId) {
+          const arrow  = revealsDir === 'up' ? '↑' : '↓';
+          const prefix = linkText || `Meet ${linkedLabel}`;
+          linkBtn.textContent = `${prefix} — ${linkedLabel} ${arrow}`;
+          linkBtn.onclick = () => { modal.close(); revealSection(revealsId, linkedId); };
         } else {
-          /* Poudyal→Sharma: section already visible, just scroll */
           linkBtn.textContent = `Also in: ${linkedLabel} ↑`;
-          linkBtn.onclick = () => {
-            modal.close();
-            flashCard(document.getElementById(linkedId));
-          };
+          linkBtn.onclick = () => { modal.close(); flashCard(document.getElementById(linkedId)); };
         }
         linkBox.hidden = false;
       } else if (linkBox) {
@@ -111,6 +161,12 @@
   closeBtn.addEventListener('click', () => modal.close());
   modal.addEventListener('click', e => { if (e.target === modal) modal.close(); });
 
+  /* Collapse button on the inline Sharma branch */
+  const sharmaCloseBtn = document.getElementById('sharmaClose');
+  if (sharmaCloseBtn) {
+    sharmaCloseBtn.addEventListener('click', collapseSharmaBranch);
+  }
+
   /* Collapse button on the Poudyal section */
   const collapseBtn = document.getElementById('poudyalClose');
   if (collapseBtn) {
@@ -119,9 +175,13 @@
       if (section) {
         section.classList.remove('is-open');
         section.setAttribute('aria-hidden', 'true');
-        /* Scroll back up to Anisha's card in the Sharma tree */
+        /* Scroll to Anisha in the core couple; if core is hidden, scroll to the tree wrap */
         const anisha = document.getElementById('anisha-sharma');
-        if (anisha) anisha.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if (anisha && !anisha.closest('[hidden]')) {
+          anisha.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          document.querySelector('.ftree-wrap').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
       }
     });
   }

@@ -25,6 +25,7 @@
 
 /* ─── Reset ───────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+[hidden] { display: none !important; }
 html { color-scheme: light dark; font-size: 16px; scroll-behavior: smooth; }
 body {
   font-family: 'Inter', system-ui, sans-serif;
@@ -447,6 +448,7 @@ dialog.lightbox::backdrop { background: transparent; }
   max-height: 0;
   opacity: 0;
   transition: max-height 0.65s ease, opacity 0.35s ease;
+  scroll-margin-top: 80px;
 }
 .ftree-reveal-section.is-open {
   max-height: 3000px;
@@ -474,6 +476,13 @@ dialog.lightbox::backdrop { background: transparent; }
   transition: all var(--t);
 }
 .ftree-reveal-close:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ── Inline branch header (shown above parents couple when Sharma is expanded) ── */
+.ft-branch-header {
+  display: flex; align-items: center; justify-content: center;
+  gap: 0.75rem; padding: 0.25rem 0 1.5rem; width: 100%;
+}
+.ft-branch-header .eyebrow { margin: 0; }
 
 .ftperson--linked {
   border-color: #7c3aed;
