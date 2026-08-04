@@ -54,7 +54,6 @@
     el.addEventListener('animationend', () => el.classList.remove('ftperson--flash'), { once: true });
   }
 
-  /* Flash in place without scrolling — used after we've already scrolled to the section */
   function flashInPlace(el) {
     el.classList.remove('ftperson--flash');
     void el.offsetWidth;
@@ -67,7 +66,10 @@
     const target  = document.getElementById(targetId);
     if (!section || !target) return;
 
-    /* Scroll to section top so its header clears the fixed nav, then flash target */
+    /* Hide the dedicated expand button for this section */
+    const expandBtn = document.querySelector(`.ftree-expand-btn[data-reveals="${sectionId}"]`);
+    if (expandBtn) expandBtn.hidden = true;
+
     function scrollAndFlash() {
       section.scrollIntoView({ behavior: 'smooth', block: 'start' });
       setTimeout(() => flashInPlace(target), 500);
@@ -76,12 +78,18 @@
     if (!section.classList.contains('is-open')) {
       section.classList.add('is-open');
       section.removeAttribute('aria-hidden');
-      /* Wait for expand animation to start before scrolling */
       setTimeout(scrollAndFlash, 400);
     } else {
       scrollAndFlash();
     }
   }
+
+  /* Dedicated expand buttons flanking the core couple */
+  document.querySelectorAll('.ftree-expand-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      revealSection(btn.dataset.reveals, btn.dataset.target);
+    });
+  });
 
   document.querySelectorAll('.ftperson').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -102,7 +110,6 @@
 
       if (linkedId && linkedLabel && linkBox && linkBtn) {
         if (revealsId) {
-          /* Card reveals a hidden section (Basanta→Sharma or Anisha→Poudyal) */
           const arrow  = revealsDir === 'up' ? '↑' : '↓';
           const prefix = linkText || `Meet ${linkedLabel}`;
           linkBtn.textContent = `${prefix} — ${linkedLabel} ${arrow}`;
@@ -111,7 +118,6 @@
             revealSection(revealsId, linkedId);
           };
         } else {
-          /* Card in the revealed section — navigate back to always-visible tree */
           linkBtn.textContent = `Also in: ${linkedLabel} ↑`;
           linkBtn.onclick = () => {
             modal.close();
@@ -140,6 +146,8 @@
         section.setAttribute('aria-hidden', 'true');
         const basanta = document.getElementById('basanta-sharma');
         if (basanta) basanta.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        const expandBtn = document.querySelector('.ftree-expand-btn[data-reveals="sharma-section"]');
+        if (expandBtn) expandBtn.hidden = false;
       }
     });
   }
@@ -154,6 +162,8 @@
         section.setAttribute('aria-hidden', 'true');
         const anisha = document.getElementById('anisha-sharma');
         if (anisha) anisha.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        const expandBtn = document.querySelector('.ftree-expand-btn[data-reveals="poudyal-section"]');
+        if (expandBtn) expandBtn.hidden = false;
       }
     });
   }

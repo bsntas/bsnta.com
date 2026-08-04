@@ -487,6 +487,45 @@ dialog.lightbox::backdrop { background: transparent; }
 }
 .ftree-reveal-close:hover { border-color: var(--accent); color: var(--accent); }
 
+/* ── Dedicated expand/collapse buttons flanking the core couple ── */
+.ftree-expand-btn {
+  appearance: none; font: inherit; font-size: 0.8rem; font-weight: 600;
+  background: none; border: 1.5px dashed var(--border);
+  border-radius: var(--radius); padding: 0.4rem 1.1rem;
+  cursor: pointer; color: var(--text-muted);
+  transition: border-color var(--t), color var(--t);
+  position: relative; flex-shrink: 0; align-self: center;
+}
+.ftree-expand-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Dashed connector going DOWN from button to the couple below */
+.ftree-expand-btn--above {
+  margin-bottom: 1.75rem;
+}
+.ftree-expand-btn--above::after {
+  content: '';
+  position: absolute; left: 50%; top: 100%;
+  transform: translateX(-50%);
+  width: 2px; height: 1.75rem;
+  background: repeating-linear-gradient(to bottom,
+    var(--border) 0, var(--border) 4px,
+    transparent 4px, transparent 8px);
+}
+
+/* Dashed connector going UP from button to the children list above */
+.ftree-expand-btn--below {
+  margin-top: 1.75rem;
+}
+.ftree-expand-btn--below::before {
+  content: '';
+  position: absolute; left: 50%; bottom: 100%;
+  transform: translateX(-50%);
+  width: 2px; height: 1.75rem;
+  background: repeating-linear-gradient(to bottom,
+    var(--border) 0, var(--border) 4px,
+    transparent 4px, transparent 8px);
+}
+
 .ftperson--linked {
   border-color: #7c3aed;
   position: relative;
