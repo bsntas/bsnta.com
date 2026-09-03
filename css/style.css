@@ -908,6 +908,8 @@ dialog.person-modal::backdrop { background: rgba(0,0,0,0.55); }
   overflow: hidden;
   display: flex; flex-direction: column;
   transition: all var(--t);
+  text-decoration: none;
+  color: inherit;
 }
 .game-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: transparent; }
 .game-card-header {
