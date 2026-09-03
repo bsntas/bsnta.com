@@ -917,10 +917,29 @@ dialog.person-modal::backdrop { background: rgba(0,0,0,0.55); }
 .game-header-uno    { background: linear-gradient(135deg, #c94a3f 0%, #7a1a10 100%); }
 .game-header-tambola { background: linear-gradient(135deg, #4a0080 0%, #1a0040 100%); }
 .game-header-bingo  { background: linear-gradient(135deg, #1a5c3a 0%, #0a2d1e 100%); }
-.game-header-shoshit  { background: linear-gradient(rgba(20,10,5,.72), rgba(67,20,7,.85)), url('../assets/images/card-shoshit.jpg') center/cover no-repeat; }
-.game-header-sai2sai  { background: linear-gradient(rgba(30,18,0,.68), rgba(124,45,18,.82)), url('../assets/images/card-sai2sai.jpg') center/cover no-repeat; }
 .game-header-ludo     { background: linear-gradient(135deg, #d97706 0%, #78350f 100%); }
-.game-header-melody   { background: linear-gradient(rgba(15,10,40,.72), rgba(30,27,75,.85)), url('../assets/images/card-melody-miracle.jpg') center top/cover no-repeat; }
+
+/* Website preview cards — screenshot visible in top portion, info at bottom */
+.game-header-website {
+  height: 210px;
+  padding: 0 1.25rem 1.25rem;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+.game-header-website .game-card-icon { display: none; }
+.game-header-website .game-card-title { font-size: 1.3rem; text-shadow: 0 1px 4px rgba(0,0,0,.6); }
+.game-header-shoshit {
+  background: linear-gradient(to bottom, transparent 45%, rgba(40,12,4,.95) 100%),
+              url('../assets/images/card-shoshit.jpg') top center / cover no-repeat;
+}
+.game-header-sai2sai {
+  background: linear-gradient(to bottom, transparent 45%, rgba(60,25,5,.95) 100%),
+              url('../assets/images/card-sai2sai.jpg') top center / cover no-repeat;
+}
+.game-header-melody {
+  background: linear-gradient(to bottom, transparent 45%, rgba(10,8,35,.95) 100%),
+              url('../assets/images/card-melody-miracle.jpg') top center / cover no-repeat;
+}
 .game-card-icon { font-size: 3rem; line-height: 1; }
 .game-card-title {
   font-family: 'Playfair Display', serif;
