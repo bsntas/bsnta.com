@@ -919,26 +919,34 @@ dialog.person-modal::backdrop { background: rgba(0,0,0,0.55); }
 .game-header-bingo  { background: linear-gradient(135deg, #1a5c3a 0%, #0a2d1e 100%); }
 .game-header-ludo     { background: linear-gradient(135deg, #d97706 0%, #78350f 100%); }
 
-/* Website preview cards — screenshot visible in top portion, info at bottom */
+/* Website preview cards — clean screenshot header, title/tags live in card body */
 .game-header-website {
-  height: 210px;
-  padding: 0 1.25rem 1.25rem;
-  justify-content: flex-end;
-  align-items: flex-start;
+  height: 200px;
+  padding: 0;
 }
-.game-header-website .game-card-icon { display: none; }
-.game-header-website .game-card-title { font-size: 1.3rem; text-shadow: 0 1px 4px rgba(0,0,0,.6); }
+.game-header-website .game-card-icon,
+.game-header-website .game-card-title,
+.game-header-website .game-card-tag-row { display: none; }
 .game-header-shoshit {
-  background: linear-gradient(to bottom, transparent 45%, rgba(40,12,4,.95) 100%),
-              url('../assets/images/card-shoshit.jpg') top center / cover no-repeat;
+  background: url('../assets/images/card-shoshit.jpg') top center / cover no-repeat;
 }
 .game-header-sai2sai {
-  background: linear-gradient(to bottom, transparent 45%, rgba(60,25,5,.95) 100%),
-              url('../assets/images/card-sai2sai.jpg') top center / cover no-repeat;
+  background: url('../assets/images/card-sai2sai.jpg') top center / cover no-repeat;
 }
 .game-header-melody {
-  background: linear-gradient(to bottom, transparent 45%, rgba(10,8,35,.95) 100%),
-              url('../assets/images/card-melody-miracle.jpg') top center / cover no-repeat;
+  background: url('../assets/images/card-melody-miracle.jpg') top center / cover no-repeat;
+}
+/* Title + tags when rendered inside card body (website cards) */
+.game-card-body .game-card-title {
+  font-size: 1.25rem;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+.game-card-body .game-card-tag-row { justify-content: flex-start; margin-bottom: 1rem; }
+.game-card-body .game-tag {
+  background: var(--bg-alt);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
 }
 .game-card-icon { font-size: 3rem; line-height: 1; }
 .game-card-title {
