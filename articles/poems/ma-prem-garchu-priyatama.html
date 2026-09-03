@@ -30,15 +30,19 @@
 
         <header class="post-header">
           <p class="post-eyebrow">कविता &nbsp;/&nbsp; Poem</p>
-          <h1 class="post-title nepali">म प्रेम गर्छु प्रियतमा</h1>
+          <h1 class="post-title nepali" data-ne="म प्रेम गर्छु प्रियतमा" data-en="I Love You, Beloved">म प्रेम गर्छु प्रियतमा</h1>
           <div class="post-meta">
             <span data-ne="बसन्त शर्मा" data-en="Basanta Sharma">बसन्त शर्मा</span>
             <span class="post-meta-sep">&middot;</span>
             <span class="nepali" data-ne="उन्मेशित" data-en="Unmeshit">उन्मेशित</span>
           </div>
+          <div class="lang-toggle" role="group" aria-label="Language" data-original="ne">
+            <button class="lang-btn" data-lang="ne" aria-pressed="true">नेपाली</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false">English</button>
+          </div>
         </header>
 
-        <div class="post-poem nepali">
+        <div class="post-poem nepali" data-lang-content="ne">
 
           <p>
             म प्रेम गर्छु प्रियतमा<br>
@@ -66,6 +70,34 @@
 
         </div>
 
+        <div class="post-poem" data-lang-content="en" hidden>
+
+          <p>
+            I love you, Beloved &mdash;<br>
+            there is nothing to say.<br>
+            Flower for flower,<br>
+            gunpowder for bullet &mdash;<br>
+            I will not fight that way.<br>
+            Whatever victory yields, I&rsquo;ll harvest,<br>
+            a storehouse heaped for your palms.<br>
+            You are my measure,<br>
+            I am your vessel &mdash;<br>
+            what accounts need to be settled?
+          </p>
+
+          <p class="post-poem-coda">
+            Come instead, and take away<br>
+            this sapling of love &mdash;<br>
+            planted in the heart,<br>
+            watered with feeling.<br>
+            May it grow, may it bloom, may it bear fruit in plenty;<br>
+            may its fragrance fill even a desolate wind.<br>
+            May this life of being alive<br>
+            find some meaning.
+          </p>
+
+        </div>
+
         <nav class="post-nav" aria-label="Article navigation">
           <a href="../../articles/index.html">&larr; सबै लेखहरू</a>
           <span></span>
@@ -78,5 +110,6 @@
   <div id="footer-slot"></div>
 
   <script src="../../js/nav.js"></script>
+  <script src="../../js/lang-toggle.js"></script>
 </body>
 </html>
